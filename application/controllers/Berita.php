@@ -30,10 +30,12 @@ class Berita extends CI_Controller {
 		$id_kategori_berita	= $kategori->id_kategori_berita;
 		$berita				= $this->berita_model->kategori($id_kategori_berita);
 		
-		$data	= array( 'title'	=> 'Kategori Berita '.$kategori->nama_kategori_berita,
-						 'keywords' => 'Kategori Berita '.$kategori->nama_kategori_berita,
-						 'berita'	=> $berita,
-						 'isi'		=> 'berita/list');
+		$data	= array( 
+			'title'	=> 'Kategori Berita '.$kategori->nama_kategori_berita,
+			'keywords' => 'Kategori Berita '.$kategori->nama_kategori_berita,
+			'berita'	=> $berita,
+			'isi'		=> 'berita/list'
+		);
 		$this->load->view('layout/wrapper',$data); 
 	}
 	

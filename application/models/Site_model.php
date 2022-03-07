@@ -43,4 +43,11 @@ class Site_model extends CI_Model {
 		$query = $this->db->get();
 		return $query->result();
 	}
+
+	// Nav Layanan
+	public function nav_layanan() {
+		$sql="SELECT*FROM `pn_info_cikarang`.`kategori_layanan`";    
+		$query = $this->db->query($sql);
+		return $query->result();
+	}
 }

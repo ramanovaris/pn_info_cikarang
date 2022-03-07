@@ -57,7 +57,7 @@ $site = $this->konfigurasi_model->listing();
 <div class="copy">
 <div class="container">
 <div class="copy-left">
-	<p>Copyright © 2015 <?php echo $site['namaweb']?>. All rights reserved | Design by <a href="<?php echo $site['website']?>"><?php echo $site['namaweb']?></a></p>
+	<p>Copyright © 2022 <?php echo $site['namaweb']?>. All rights reserved | Design by <a href="<?php echo $site['website']?>">CV. Tekno Berkah Mandiri</a></p>
 </div>
 <div class="social-icons">
 	<ul>

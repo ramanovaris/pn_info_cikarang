@@ -2,6 +2,7 @@
 $nav_produk	= $this->site_model->nav_produk();
 $nav_berita	= $this->site_model->nav_berita();
 $nav_profil	= $this->site_model->nav_profil();
+$nav_layanan	= $this->site_model->nav_layanan();
 ?>
 <!--navigation-->
 <div class="top-nav">
@@ -23,19 +24,27 @@ $nav_profil	= $this->site_model->nav_profil();
       </ul>
   </li>	
   
-  <li><a href="#" class="dropdown-toggle hvr-bounce-to-bottom" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Produk<span class="caret"></span></a>
+  <!-- <li><a href="#" class="dropdown-toggle hvr-bounce-to-bottom" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Produk<span class="caret"></span></a>
       <ul class="dropdown-menu">
       	<?php foreach($nav_produk as $nav_produk) { ?>
           <li><a class="hvr-bounce-to-bottom" href="<?php echo base_url('produk/kategori/'.$nav_produk->slug_kategori_produk) ?>"><?php echo $nav_produk->nama_kategori_produk ?></a></li>
         <?php } ?> 
       </ul>
-  </li>	
+  </li>	 -->
   
   <li><a href="#" class="dropdown-toggle hvr-bounce-to-bottom" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Berita<span class="caret"></span></a>
       <ul class="dropdown-menu">
       	<?php foreach($nav_berita as $nav_berita) { ?>
           <li><a class="hvr-bounce-to-bottom" href="<?php echo base_url('berita/kategori/'.$nav_berita->slug_kategori_berita) ?>"><?php echo $nav_berita->nama_kategori_berita ?></a></li>
         <?php } ?> 
+      </ul>
+  </li>	
+
+  <li><a href="#" class="dropdown-toggle hvr-bounce-to-bottom" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Layanan<span class="caret"></span></a>
+      <ul class="dropdown-menu">
+      	<!-- <?php foreach($nav_layanan as $nav_layanan) { ?> -->
+          <li><a class="hvr-bounce-to-bottom" href="<?php echo base_url('layanan') ?>"><?php echo $nav_layanan->nama_kategori_layanan ?></a></li>
+        <!-- <?php } ?>  -->
       </ul>
   </li>	
   

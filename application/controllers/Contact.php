@@ -29,17 +29,18 @@ class Contact extends CI_Controller {
 			array(	'required'		=> 'Pesan harus diisi'));
 		
 		if($valid->run() === FALSE) {
-		// End validasi
-		
-		$data	= array( 'title'	=> $site['namaweb'].' | '.$site['tagline'],
-						 'keywords' => $site['namaweb'].', '.$site['keywords'],
-						 'produk'	=> $produk,
-						 'berita'	=> $berita,
-						 'site'		=> $site,
-						 'isi'		=> 'home/kontak');
-		$this->load->view('layout/wrapper',$data); 
-		//Kirim ke pemilik website
-		}else{
+			// End validasi
+			
+			$data	= array( 'title'	=> $site['namaweb'].' | '.$site['tagline'],
+							'keywords' => $site['namaweb'].', '.$site['keywords'],
+							'produk'	=> $produk,
+							'berita'	=> $berita,
+							'site'		=> $site,
+							'isi'		=> 'home/kontak');
+			$this->load->view('layout/wrapper',$data); 
+			//Kirim ke pemilik website
+		}
+		else{
 			$i 			= $this->input;
 			$email		= $i->post('email');
 			$subject	= 'Form contact us - '.$site['namaweb'];

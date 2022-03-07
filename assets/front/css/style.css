@@ -16,6 +16,10 @@ body{
       font-family: 'Iceland-Regular';
       src: url(../fonts/Iceland-Regular.ttf) format('truetype');
 }
+@font-face {
+    font-family: 'merriweather-bold';
+    src: url(../fonts/merriweather-bold.ttf) format('truetype');
+}
 body a{
 	transition: 0.5s all ease;
 	-webkit-transition: 0.5s all ease;
@@ -46,8 +50,8 @@ body a:hover{
 	display:inline-block;
 }
 .logo a h1 {
-    font-size: 6.5em;
-    font-family: 'Iceland-Regular';
+    font-size: 4.5em;
+    font-family: 'merriweather-bold';
     color: #000;
     letter-spacing: -5px;
     border-bottom: 9px double #000;

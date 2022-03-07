@@ -19,12 +19,15 @@ class Home extends CI_Controller {
 		$berita	= $this->berita_model->home();
 		$video	= $this->video_model->home();
 		
-		$data	= array( 'title'	=> $site['namaweb'].' | '.$site['tagline'],
-						 'keywords' => $site['namaweb'].', '.$site['keywords'],
-						 'produk'	=> $produk,
-						 'berita'	=> $berita,
-						 'video'	=> $video,
-						 'isi'		=> 'home/list');
+		$data	= array( 
+			'title'	=> $site['namaweb'].' | '.$site['tagline'],
+			'keywords' => $site['namaweb'].', '.$site['keywords'],
+			'produk'	=> $produk,
+			'berita'	=> $berita,
+			'video'	=> $video,
+			'isi'		=> 'home/list'
+		);
+		
 		$this->load->view('layout/wrapper',$data); 
 	}
 }
