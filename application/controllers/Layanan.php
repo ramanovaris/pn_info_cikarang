@@ -64,7 +64,7 @@ class Layanan extends CI_Controller {
 		$this->email->from('hantuwifi7@gmail.com', 'hantu');
 
 		// Email penerima
-		$this->email->to('ramaanovariss@gmail.com, theboy141198@gmail.com'); // Ganti dengan email tujuan
+		$this->email->bcc('ramaanovariss@gmail.com, theboy141198@gmail.com'); // Ganti dengan email tujuan
 
 		// Lampiran email, isi dengan url/path file
 		$this->email->attach('https://images.pexels.com/photos/169573/pexels-photo-169573.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940');
@@ -73,7 +73,7 @@ class Layanan extends CI_Controller {
 		$this->email->subject('Tes lagi');
 
 		// Isi email
-		$this->email->message("Tes kirim ke 2 email");
+		$this->email->message("coba bcc ke 2 penerima");
 
 			// Tampilkan pesan sukses atau error
 			if ($this->email->send()) {
