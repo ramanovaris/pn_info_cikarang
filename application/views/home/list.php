@@ -1,6 +1,6 @@
 <?php
 $site	= $this->konfigurasi_model->listing();
-include('produk.php');
+// include('produk.php');
 include('berita.php');
 ?>
 
@@ -9,7 +9,9 @@ include('berita.php');
 <div class="container">
 <div class="main-grids">
 
-<?php foreach($video as $video) { ?>
+
+<!-- Tampil Video -->
+<!-- <?php foreach($video as $video) { ?>
 <div class="col-md-6 main-left">
     
    <div class="embed-responsive embed-responsive-4by3">
@@ -19,11 +21,11 @@ include('berita.php');
     <h4 class="text-center"><?php echo $video->judul ?></h4>
    
     <p class="text-center">
-    	<a href="<?php echo base_url('video') ?>" class="more btn btn-1 btn-1b"> More video...</a>
+    	<a href="<?php echo base_url('video') ?>" class="more btn btn-1 btn-1b"> Mores video...</a>
     </p>
     
 </div>
-<?php } ?>
+<?php } ?> -->
 
 <div class="clearfix"> </div>
 </div>			

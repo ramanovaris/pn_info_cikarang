@@ -1,7 +1,7 @@
 <!-- news -->
 <div class="news-info">
 <div class="container">		
-<h3 class="title">Our News</h3>
+<h3 class="title">Informasi Pengadilan Negeri Cikarang</h3>
 </div>
 </div>
 <!-- container -->

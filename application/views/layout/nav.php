@@ -48,7 +48,7 @@ $nav_layanan	= $this->site_model->nav_layanan();
       </ul>
   </li>	
   
-  <li class="hvr-bounce-to-bottom"><a href="<?php echo base_url('contact') ?>">Contact Us</a></li>
+  <!-- <li class="hvr-bounce-to-bottom"><a href="<?php echo base_url('contact') ?>">Contact Us</a></li> -->
 </ul>	
 <div class="clearfix"> </div>
 </div>	
