@@ -5,7 +5,7 @@ $site = $this->konfigurasi_model->listing();
 <div class="footer">	
 <div class="container">
 <div class="footer-grids">
-	<div class="col-md-3 footer-grid">
+	<!-- <div class="col-md-3 footer-grid">
 		<h3 class="title">Produk</h3>
 		<ul>
         
@@ -17,8 +17,8 @@ $site = $this->konfigurasi_model->listing();
 		<?php } ?>
         
 		</ul>
-	</div>
-	<div class="col-md-3 footer-grid">
+	</div> -->
+	<div class="col-md-4 footer-grid">
 		<h3 class="title">Berita</h3>
 		 <ul>
          	<?php
@@ -29,7 +29,7 @@ $site = $this->konfigurasi_model->listing();
 			<?php } ?>
 		</ul>
 	</div>
-	<div class="col-md-3 footer-grid">
+	<div class="col-md-4 footer-grid">
 		<h3 class="title">Profil</h3>
 		<ul>
         <?php
@@ -41,7 +41,7 @@ $site = $this->konfigurasi_model->listing();
 		<?php } ?>
 		</ul>
 	</div>
-	<div class="col-md-3 footer-grid contact-grid">
+	<div class="col-md-4 footer-grid contact-grid">
 			<h3 class="title">Contact us</h3>
 			<ul>
 				<li><span class="glyphicon glyphicon-map-marker" aria-hidden="true"></span><?php echo $site['namaweb']?>.</li>							
