@@ -442,13 +442,13 @@ a.more {
   text-align: center;
 }
 h3.title {
-    font-size: 3.5em;
+    font-size: 2em;
     color: #84904B;
     text-align: center;
-    border-top: 3px double #D8D7D7;
-    border-bottom: 3px double #D8D7D7;
+    /* border-top: 3px double #D8D7D7; */
+    /* border-bottom: 3px double #D8D7D7; */
     padding: 0.2em 0;
-    font-family: 'Iceland-Regular';
+    font-family: 'merriweather-bold';
 }
 .srvc-img {
   display: inline-block;

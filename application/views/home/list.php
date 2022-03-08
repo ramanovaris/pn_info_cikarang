@@ -33,7 +33,7 @@ include('berita.php');
 </div>
 <!--//main-->
 	<!--services-->
-	<div class="services" id="services">
+	<!-- <div class="services" id="services">
 		<div class="container">
 			<h3 class="title">Services Overview</h3>
 			<div class="service-grids">
@@ -82,5 +82,5 @@ include('berita.php');
 				<div class="clearfix"> </div>				
 			</div>
 		</div>
-	</div>
+	</div> -->
 	<!--//services-->
