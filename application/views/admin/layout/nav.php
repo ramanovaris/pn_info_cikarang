@@ -6,13 +6,13 @@
     <li><a href="<?php echo base_url('admin/dasbor') ?>"><i class="fa fa-dashboard"></i> Dasbor</a></li>       
     
     <!-- Produk -->           
-   <li><a href="#"><i class="fa fa-book"></i> Produk<span class="fa arrow"></span></a>
+   <!-- <li><a href="#"><i class="fa fa-book"></i> Produk<span class="fa arrow"></span></a>
         <ul class="nav nav-second-level">
             <li><a href="<?php echo base_url('admin/produk')?>">Data Produk</a></li>
             <li><a href="<?php echo base_url('admin/produk/tambah')?>">Tambah Produk</a></li>
             <li><a href="<?php echo base_url('admin/kategori_produk')?>">Kategori Produk</a></li>
         </ul>
-    </li> 
+    </li>  -->
     
     <!-- Berita -->           
    <li><a href="#"><i class="fa fa-newspaper-o"></i> Berita<span class="fa arrow"></span></a>
