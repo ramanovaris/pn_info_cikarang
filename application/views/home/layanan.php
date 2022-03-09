@@ -38,7 +38,7 @@
 
         ?>
 
-        <form method="post" action="<?php echo base_url('layanan') ?>">
+        <form method="post" action="<?php echo base_url('layanan/tambah') ?>">
             <div class="col-md-12 cnt-inpt">
               <input type="text" name="nama" value="<?php echo set_value('nama') ?>" placeholder="Nama" required
               >
@@ -50,6 +50,11 @@
 
             <div class="col-md-6 cnt-inpt">
                 <input type="text" name="telepon" value="<?php echo set_value('telepon') ?>" placeholder="Telepon/HP" required>
+            </div>
+
+						<div class="col-md-12 cnt-inpt">
+              <input type="text" name="pekerjaan" value="<?php echo set_value('pekerjaan') ?>" placeholder="Pekerjaan" required
+              >
             </div>
             
             <div class="clearfix"> </div>
