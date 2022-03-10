@@ -113,10 +113,14 @@ class Layanan extends CI_Controller {
 		
 		if($v->run()) {				
 				// Proses ke database
+
+				// Get Autonumber
+				$kode_pemohon = $this->layanan_model->get_autonumber_pendaftaran();
+
 				$i = $this->input;
 				$data = array(	
 								// 'id_user'				=> $this->session->userdata('id'),
-								'kode_pemohon'			=> '0001',
+								'kode_pemohon'			=> $kode_pemohon,
 								'nama_pemohon'			=> $i->post('nama'),
 								'email'			=> $i->post('email'),
 								'pesan'				=> $i->post('pesan'),
