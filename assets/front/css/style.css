@@ -959,6 +959,10 @@ section#tables  p {
   border: none;
   text-shadow: none;
 }
+
+.label-radio-button {
+    font-weight: normal;	
+  }
 .nav-tabs {
   margin-bottom: 1em;
 }
@@ -1033,7 +1037,7 @@ h2.typoh2{
 	outline: none;
 	font-size: 1em;
 	color: #868585;
-	resize: none;
+	/* resize: none; */
 	padding: 10px 5px;
 	-webkit-appearance: none;
 }

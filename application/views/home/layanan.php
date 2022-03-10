@@ -40,25 +40,82 @@
 
         <form method="post" action="<?php echo base_url('layanan/tambah') ?>">
             <div class="col-md-12 cnt-inpt">
-              <input type="text" name="nama" value="<?php echo set_value('nama') ?>" placeholder="Nama" required
+              <label>Tanggal Pemberitahuan : </label>
+              <input type="date" id="tgl_pemberitahuan" name="tgl_pemberitahuan" placeholder="Tgl" required>
+            </div>
+
+        
+          <div class="col-md-12 cnt-inpt">
+            <label>Nama Lengkap : </label>
+            <input type="text" name="nama" value="<?php echo set_value('nama') ?>" placeholder="Nama" required
+            >
+          </div>
+
+          <div class="col-md-12 cnt-inpt">
+            <label>Alamat : </label>
+            <textarea name="alamat" placeholder="Alamat" required><?php echo set_value('alamat') ?></textarea>
+          </div>
+
+          <div class="col-md-12 cnt-inpt">
+            <label>Pekerjaan : </label>
+              <input type="text" name="pekerjaan" value="<?php echo set_value('pekerjaan') ?>" placeholder="Pekerjaan" required
               >
+          </div>
+
+            <div class="col-md-6 cnt-inpt">
+              <label>Email : </label>
+              <input type="email" name="email" value="<?php echo set_value('email') ?>" placeholder="Email" required>
             </div>
 
             <div class="col-md-6 cnt-inpt">
-                <input type="email" name="email" value="<?php echo set_value('email') ?>" placeholder="Email" required>
-            </div>
-
-            <div class="col-md-6 cnt-inpt">
+              <label>No. Telp : </label>
                 <input type="text" name="telepon" value="<?php echo set_value('telepon') ?>" placeholder="Telepon/HP" required>
             </div>
 
-						<div class="col-md-12 cnt-inpt">
-              <input type="text" name="pekerjaan" value="<?php echo set_value('pekerjaan') ?>" placeholder="Pekerjaan" required
+            <div class="col-md-12 cnt-inpt">
+              <label>Rincian Informasi yang dibutuhkan : </label>
+                <textarea name="rincian_informasi" placeholder="Rincian Informasi yang dibutuhkan" required><?php echo set_value('rincian_informasi') ?></textarea>
+            </div>
+
+            <div class="col-md-12 cnt-inpt">
+              <label>Tujuan Penggunaan Informasi : </label>
+              <input type="text" name="tujuan" value="<?php echo set_value('tujuan') ?>" placeholder="Tujuan" required
               >
             </div>
+
+            <div class="col-md-12 cnt-inpt">
+              <label>Cara memperoleh informasi : </label>
+              
+                <input type="radio" id="melihat" name="tujuan" value="Melihat">
+                <label for="melihat" class="label-radio-button">Melihat</label>
+                <input type="radio" id="membaca" name="tujuan" value="Membaca">
+                <label for="membaca" class="label-radio-button">Membaca</label>
+                <input type="radio" id="mendengarkan" name="tujuan" value="Mendengarkan">
+                <label for="mendengarkan" class="label-radio-button">Mendengarkan</label>
+            </div>
+
+            <div class="col-md-12 cnt-inpt">
+              <label>Mendapatkan salinan informasi : </label>
+              
+                <input type="radio" id="Softcopy" name="salinan" value="Softcopy">
+                <label for="Softcopy" class="label-radio-button">Softcopy</label>
+                <input type="radio" id="Hardcopy" name="salinan" value="Hardcopy">
+                <label for="Hardcopy" class="label-radio-button">Hardcopy</label>
+            </div>
+
+            <div class="col-md-12 cnt-inpt">
+              <label>Cara mendapatkan informasi : </label>
+              
+                <input type="radio" id="Langsung" name="via" value="Langsung">
+                <label for="Langsung" class="label-radio-button">Mengambil Langsung</label>
+                <input type="radio" id="Email" name="via" value="Email">
+                <label for="Email" class="label-radio-button">Email</label>
+            </div>
+
+						
             
             <div class="clearfix"> </div>
-            <textarea name="pesan" placeholder="Pesan" required><?php echo set_value('pesan') ?></textarea>
+            
             <input type="submit" value="Submit">
         </form>
 			</div>			
