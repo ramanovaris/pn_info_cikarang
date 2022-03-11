@@ -96,36 +96,64 @@ class Layanan extends CI_Controller {
 
 		// Validasi
 		$v = $this->form_validation;
+
+		$v->set_rules('tgl_pemberitahuan','Tgl_pemberitahuan','required',
+			array(	'required'		=> 'Tanggal Pemberitahuan harus diisi'));
+
 		$v->set_rules('nama','Nama','required',
 			array(	'required'		=> 'Nama harus diisi'));
-		
-		$v->set_rules('email','Email','required',
-			array(	'required'		=> 'Email harus diisi'));
-		
-		$v->set_rules('pesan','Pesan','required',
-			array(	'required'		=> 'Pesan harus diisi'));
+
+			$v->set_rules('alamat','Alamat','required',
+			array(	'required'		=> 'Alamat harus diisi'));
 
 			$v->set_rules('pekerjaan','Pekerjaan','required',
 			array(	'required'		=> 'Pekerjaan harus diisi'));
+		
+		$v->set_rules('email','Email','required',
+			array(	'required'		=> 'Email harus diisi'));
 
 			$v->set_rules('telepon','Telepon','required',
 			array(	'required'		=> 'Telepon harus diisi'));
+		
+		$v->set_rules('rincian_informasi','Rincian_informasi','required',
+			array(	'required'		=> 'Rincian Informasi yang dibutuhkan harus diisi'));
+
+			$v->set_rules('tujuan','Tujuan','required',
+			array(	'required'		=> 'Tujuan Penggunaan Informasi harus diisi'));
+
+			$v->set_rules('cara_peroleh_info','Cara_peroleh_info','required',
+			array(	'required'		=> 'Cara memperoleh informasi harus diisi'));
+
+			$v->set_rules('salinan','Salinan','required',
+			array(	'required'		=> 'Mendapatkan salinan informasi harus diisi'));
+
+			$v->set_rules('via','Via','required',
+			array(	'required'		=> 'Cara mendapatkan informasi harus diisi'));
+			
 		
 		if($v->run()) {				
 				// Proses ke database
 
 				// Get Autonumber
 				$kode_pemohon = $this->layanan_model->get_autonumber_pendaftaran();
+				
 
 				$i = $this->input;
 				$data = array(	
 								// 'id_user'				=> $this->session->userdata('id'),
 								'kode_pemohon'			=> $kode_pemohon,
+								'tgl_pemberitahuan'			=> $i->post('tgl_pemberitahuan'),
 								'nama_pemohon'			=> $i->post('nama'),
-								'email'			=> $i->post('email'),
-								'pesan'				=> $i->post('pesan'),
+								'alamat'			=> $i->post('alamat'),
 								'pekerjaan'			=> $i->post('pekerjaan'),
-								'no_telpon'			=> $i->post('telepon')
+								'email'			=> $i->post('email'),
+								'no_telpon'			=> $i->post('telepon'),
+								'rincian_informasi'			=> $i->post('rincian_informasi'),
+								'tujuan'			=> $i->post('tujuan'),
+								'cara_peroleh_info'			=> $i->post('cara_peroleh_info'),
+								'salinan'			=> $i->post('salinan'),
+								'via'			=> $i->post('via'),
+								'status_permohonan' => 'BELUM DIVERIKASI'
 								);
 				$this->layanan_model->tambah($data);
 				$this->session->set_flashdata('sukses','Permohonan Informasi telah ditambah');

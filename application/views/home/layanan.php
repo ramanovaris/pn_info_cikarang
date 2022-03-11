@@ -86,29 +86,29 @@
             <div class="col-md-12 cnt-inpt">
               <label>Cara memperoleh informasi : </label>
               
-                <input type="radio" id="melihat" name="tujuan" value="Melihat">
+                <input type="radio" id="melihat" name="cara_peroleh_info" value="Melihat" required>
                 <label for="melihat" class="label-radio-button">Melihat</label>
-                <input type="radio" id="membaca" name="tujuan" value="Membaca">
+                <input type="radio" id="membaca" name="cara_peroleh_info" value="Membaca" required>
                 <label for="membaca" class="label-radio-button">Membaca</label>
-                <input type="radio" id="mendengarkan" name="tujuan" value="Mendengarkan">
+                <input type="radio" id="mendengarkan" name="cara_peroleh_info" value="Mendengarkan" required>
                 <label for="mendengarkan" class="label-radio-button">Mendengarkan</label>
             </div>
 
             <div class="col-md-12 cnt-inpt">
               <label>Mendapatkan salinan informasi : </label>
               
-                <input type="radio" id="Softcopy" name="salinan" value="Softcopy">
+                <input type="radio" id="Softcopy" name="salinan" value="Softcopy" required>
                 <label for="Softcopy" class="label-radio-button">Softcopy</label>
-                <input type="radio" id="Hardcopy" name="salinan" value="Hardcopy">
+                <input type="radio" id="Hardcopy" name="salinan" value="Hardcopy" required>
                 <label for="Hardcopy" class="label-radio-button">Hardcopy</label>
             </div>
 
             <div class="col-md-12 cnt-inpt">
               <label>Cara mendapatkan informasi : </label>
               
-                <input type="radio" id="Langsung" name="via" value="Langsung">
+                <input type="radio" id="Langsung" name="via" value="Langsung" required>
                 <label for="Langsung" class="label-radio-button">Mengambil Langsung</label>
-                <input type="radio" id="Email" name="via" value="Email">
+                <input type="radio" id="Email" name="via" value="Email" required>
                 <label for="Email" class="label-radio-button">Email</label>
             </div>
 
