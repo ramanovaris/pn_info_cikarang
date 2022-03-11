@@ -24,30 +24,34 @@
     </li> 
     
     <!-- Modul Video -->
-    <li><a href="#"><i class="fa fa-film"></i> Video<span class="fa arrow"></span></a>
+    <!-- <li><a href="#"><i class="fa fa-film"></i> Video<span class="fa arrow"></span></a>
         <ul class="nav nav-second-level">
             <li><a href="<?php echo base_url('admin/video')?>">Data Video</a></li>
             <li><a href="<?php echo base_url('admin/video/tambah')?>">Tambah Video</a></li>
         </ul>
-    </li> 
+    </li>  -->
     
     <!-- Modul User -->
-    <li><a href="#"><i class="fa fa-users"></i> User/Administrator<span class="fa arrow"></span></a>
-        <ul class="nav nav-second-level">
-            <li><a href="<?php echo base_url('admin/user')?>">Data User/Administrator</a></li>
-            <li><a href="<?php echo base_url('admin/user/tambah')?>">Tambah User/Admin</a></li>
-        </ul>
-    </li> 
+    <?php if($this->session->userdata('akses_level') == 'Admin') {?>
+        <li><a href="#"><i class="fa fa-users"></i> User/Administrator<span class="fa arrow"></span></a>
+            <ul class="nav nav-second-level">
+                <li><a href="<?php echo base_url('admin/user')?>">Data User/Administrator</a></li>
+                <li><a href="<?php echo base_url('admin/user/tambah')?>">Tambah User/Admin</a></li>
+            </ul>
+        </li> 
+    <?php } ?>
     
     <!-- Modul Konfigurasi -->
-    <li><a href="#"><i class="fa fa-wrench"></i> Konfigurasi Website<span class="fa arrow"></span></a>
-        <ul class="nav nav-second-level">
-            <li><a href="<?php echo base_url('admin/dasbor/konfigurasi')?>">Konfigurasi Umum</a></li>
-            <li><a href="<?php echo base_url('admin/dasbor/logo')?>">Ganti Logo</a></li>
-            <li><a href="<?php echo base_url('admin/dasbor/icon')?>">Ganti Icon</a></li>
-            <li><a href="<?php echo base_url('admin/dasbor/quote')?>">Quote</a></li>
-        </ul>
-    </li>  
+    <?php if($this->session->userdata('akses_level') == 'Admin') {?>
+        <li><a href="#"><i class="fa fa-wrench"></i> Konfigurasi Website<span class="fa arrow"></span></a>
+            <ul class="nav nav-second-level">
+                <li><a href="<?php echo base_url('admin/dasbor/konfigurasi')?>">Konfigurasi Umum</a></li>
+                <li><a href="<?php echo base_url('admin/dasbor/logo')?>">Ganti Logo</a></li>
+                <li><a href="<?php echo base_url('admin/dasbor/icon')?>">Ganti Icon</a></li>
+                <li><a href="<?php echo base_url('admin/dasbor/quote')?>">Quote</a></li>
+            </ul>
+        </li> 
+    <?php } ?> 
  
 </ul>
 

@@ -47,26 +47,25 @@ echo validation_errors('<div class="alert alert-success">','</div>');
 
 <form role="form" method="post" action="<?php echo base_url('login') ?>">
    <br />
- <div class="form-group input-group">
+    <div class="form-group input-group">
         <span class="input-group-addon"><i class="fa fa-tag"  ></i></span>
         <input type="text" name="username" class="form-control" placeholder="Your Username " />
     </div>
-                                          <div class="form-group input-group">
+    <div class="form-group input-group">
         <span class="input-group-addon"><i class="fa fa-lock"  ></i></span>
         <input type="password" name="password" class="form-control"  placeholder="Your Password" />
     </div>
-<div class="form-group">
-        <label class="checkbox-inline">
-            <input type="checkbox" /> Remember me
-        </label>
-        <span class="pull-right">
-               <a href="#" >Forget password ? </a> 
-        </span>
-    </div>
- 
- <input type="submit" name="submit" value="Login" class="btn btn-primary">
-<hr />
-Not register ? <a href="registeration.html" >click here </a> 
+    <!-- <div class="form-group">
+            <label class="checkbox-inline">
+                <input type="checkbox" /> Remember me
+            </label>
+            <span class="pull-right">
+                <a href="#" >Forget password ? </a> 
+            </span>
+    </div> -->
+    <input type="submit" name="submit" value="Login" class="btn btn-primary">
+    <!-- <hr /> -->
+    <!-- Not register ? <a href="registeration.html" >click here </a>  -->
 </form>
 </div>
 

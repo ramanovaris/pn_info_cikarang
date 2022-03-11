@@ -20,10 +20,14 @@ class Simple_login {
 		// Jika ada hasilnya
 		if($query->num_rows() == 1) {
 			$row 	= $this->CI->db->query('SELECT * FROM users WHERE username = "'.$username.'"');
+		
 			$admin 	= $row->row();
 			$id 	= $admin->id_user;
 			$nama	= $admin->nama;
-			$level	= $admin->level;
+			$level	= $admin->akses_level;
+			// var_dump($level);
+			// die();
+
 			// $_SESSION['username'] = $username;
 			$this->CI->session->set_userdata('username', $username); 
 			$this->CI->session->set_userdata('akses_level', $level); 
