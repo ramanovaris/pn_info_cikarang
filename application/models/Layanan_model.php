@@ -26,9 +26,10 @@ class Layanan_model extends CI_Model {
 		}else{
 				$kd = "00001";
 		}
+
 		date_default_timezone_set('Asia/Jakarta');
     return date('dmy')."-".$kd;
-}
+	}
 	
 	// // Edit 
 	// public function edit ($data) {

@@ -136,12 +136,12 @@ class Layanan extends CI_Controller {
 
 				// Get Autonumber
 				$kode_pemohon = $this->layanan_model->get_autonumber_pendaftaran();
-				
 
 				$i = $this->input;
 				$data = array(	
 								// 'id_user'				=> $this->session->userdata('id'),
 								'kode_pemohon'			=> $kode_pemohon,
+								'tanggal_permohonan' => date('Y-m-d H:i:s'),
 								'tgl_pemberitahuan'			=> $i->post('tgl_pemberitahuan'),
 								'nama_pemohon'			=> $i->post('nama'),
 								'alamat'			=> $i->post('alamat'),

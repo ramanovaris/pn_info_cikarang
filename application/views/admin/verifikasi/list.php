@@ -54,11 +54,8 @@ echo validation_errors('<div class="alert alert-success">','</div>');
             <?php include('detail.php') ?>
         </td>
         <td>
-            <button class="myButton-green" onclick="location.href='<?php echo base_url('admin/berita/edit/'.$verifikasi->id_pemohon) ?>'">
-                <!-- <span class="glyphicon glyphicon-edit"></span> -->
-                <span class="glyphicon glyphicon-ok"></span>
-            </button>
-            <?php include('delete.php') ?>
+            <?php include('terima.php') ?>
+            <?php include('tolak.php') ?>
         </td>
     </tr>
 <?php $i++; } ?>

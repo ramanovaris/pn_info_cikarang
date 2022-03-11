@@ -13,16 +13,36 @@ class Verifikasi_model extends CI_Model {
 	public function listing() {
 		$sql= "
 		SELECT
+			IF(a.`status_permohonan`='BELUM DIVERIKASI',
+				1
+				,
+				IF(a.`status_permohonan`='TOLAK',
+					2
+					,
+					0=0
+				)
+			) AS urut,
 			a.*
 		FROM `permohonan_informasi` a
 		WHERE
-			a.`status_permohonan` = 'BELUM DIVERIFIKASI'
-		ORDER BY tanggal_permohonan ASC
+			a.`status_permohonan` in (
+				'BELUM DIVERIFIKASI',
+				'TOLAK'
+			)
+		ORDER BY
+						urut ASC,
+						tanggal_permohonan ASC
 		";    
 		$query = $this->db->query($sql);
 		return $query->result();
 	}
-	
+
+	// Update Status Pengajuan 
+	public function update_sts_pengajuan($data) {
+		$this->db->where('id_pemohon',$data['id_pemohon']);
+		$this->db->update('permohonan_informasi',$data);
+	}
+
 	// //Read
 	// public function read($slug_berita) {
 	// 	$this->db->select('berita.*, kategori_berita.nama_kategori_berita, users.nama');
