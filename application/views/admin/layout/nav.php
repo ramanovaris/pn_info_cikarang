@@ -13,6 +13,13 @@
             <li><a href="<?php echo base_url('admin/kategori_produk')?>">Kategori Produk</a></li>
         </ul>
     </li>  -->
+
+    <!-- Data Verfikasi -->           
+   <li><a href="<?php echo base_url('admin/berita')?>"><i class="fa fa-newspaper-o"></i>Data Verifikasi</a>
+        <!-- <ul class="nav nav-second-level"> -->
+            <!-- <li><a href="<?php echo base_url('admin/berita')?>">Data Verifikasi</a></li> -->
+        <!-- </ul> -->
+    </li> 
     
     <!-- Berita -->           
    <li><a href="#"><i class="fa fa-newspaper-o"></i> Berita<span class="fa arrow"></span></a>
