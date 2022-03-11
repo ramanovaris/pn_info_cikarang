@@ -27,7 +27,7 @@ class Layanan_model extends CI_Model {
 				$kd = "00001";
 		}
 		date_default_timezone_set('Asia/Jakarta');
-    return date('my')."-".$kd;
+    return date('dmy')."-".$kd;
 }
 	
 	// // Edit 
