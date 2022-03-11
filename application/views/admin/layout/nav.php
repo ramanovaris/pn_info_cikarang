@@ -15,7 +15,7 @@
     </li>  -->
 
     <!-- Data Verfikasi -->           
-   <li><a href="<?php echo base_url('admin/berita')?>"><i class="fa fa-newspaper-o"></i>Data Verifikasi</a>
+   <li><a href="<?php echo base_url('admin/verifikasi')?>"><i class="fa fa-newspaper-o"></i>Data Verifikasi</a>
         <!-- <ul class="nav nav-second-level"> -->
             <!-- <li><a href="<?php echo base_url('admin/berita')?>">Data Verifikasi</a></li> -->
         <!-- </ul> -->

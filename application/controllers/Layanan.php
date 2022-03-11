@@ -153,7 +153,7 @@ class Layanan extends CI_Controller {
 								'cara_peroleh_info'			=> $i->post('cara_peroleh_info'),
 								'salinan'			=> $i->post('salinan'),
 								'via'			=> $i->post('via'),
-								'status_permohonan' => 'BELUM DIVERIKASI'
+								'status_permohonan' => 'BELUM DIVERIFIKASI'
 								);
 				$this->layanan_model->tambah($data);
 				$this->session->set_flashdata('sukses','Permohonan Informasi telah ditambah');

@@ -376,4 +376,99 @@ line-height: 1.428571429;
    
 }
 
+/* Custome CSS Rama */
+.myButton-green {
+	box-shadow: 0px 10px 14px -7px #1dc278;
+	background:linear-gradient(to bottom, #35cc3f 5%, #29e681 100%);
+	background-color:#35cc3f;
+	border-radius:8px;
+	display:inline-block;
+	cursor:pointer;
+	color:#ffffff;
+	font-family:Arial;
+	font-size:11px;
+	font-weight:bold;
+	padding:5px 10px;
+	text-decoration:none;
+	text-shadow:0px 1px 0px #13d494;
+}
+.myButton-green:hover {
+	background:linear-gradient(to bottom, #29e681 5%, #35cc3f 100%);
+	background-color:#29e681;
+}
+.myButton-green:active {
+	position:relative;
+	top:1px;
+}
 
+.myButton-blue {
+	box-shadow: 0px 10px 14px -7px #1da9c2;
+	background:linear-gradient(to bottom, #35c7cc 5%, #29e6e6 100%);
+	background-color:#35c7cc;
+	border-radius:8px;
+	display:inline-block;
+	cursor:pointer;
+	color:#ffffff;
+	font-family:Arial;
+	font-size:11px;
+	font-weight:bold;
+	padding:5px 10px;
+	text-decoration:none;
+	text-shadow:0px 1px 0px #13d6c6;
+}
+.myButton-blue:hover {
+	background:linear-gradient(to bottom, #29e6e6 5%, #35c7cc 100%);
+	background-color:#29e6e6;
+}
+.myButton-blue:active {
+	position:relative;
+	top:1px;
+}
+
+.myButton-red {
+	box-shadow: 0px 10px 14px -7px #eb3636;
+	background:linear-gradient(to bottom, #c94141 5%, #f03060 100%);
+	background-color:#c94141;
+	border-radius:8px;
+	display:inline-block;
+	cursor:pointer;
+	color:#ffffff;
+	font-family:Arial;
+	font-size:11px;
+	font-weight:bold;
+	padding:5px 10px;
+	text-decoration:none;
+	text-shadow:0px 1px 0px #e64040;
+}
+.myButton-red:hover {
+	background:linear-gradient(to bottom, #f03060 5%, #c94141 100%);
+	background-color:#f03060;
+}
+.myButton-red:active {
+	position:relative;
+	top:1px;
+}
+
+.myButton-yellow {
+	box-shadow: 0px 10px 14px -7px #d6db41;
+	background:linear-gradient(to bottom, #f5f53b 5%, #cccc3b 100%);
+	background-color:#f5f53b;
+	border-radius:8px;
+	display:inline-block;
+	cursor:pointer;
+	color:#ffffff;
+	font-family:Arial;
+	font-size:11px;
+	font-weight:bold;
+	padding:5px 10px;
+	text-decoration:none;
+	text-shadow:0px 1px 0px #525146;
+}
+.myButton-yellow:hover {
+	background:linear-gradient(to bottom, #cccc3b 5%, #f5f53b 100%);
+	background-color:#cccc3b;
+}
+.myButton-yellow:active {
+	position:relative;
+	top:1px;
+}
