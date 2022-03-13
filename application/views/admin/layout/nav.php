@@ -12,7 +12,7 @@
 
     <!-- Data Olah Informasi -->     
     <?php if($this->session->userdata('akses_level') == 'PTSP' || $this->session->userdata('akses_level') == 'Super Admin') {?>      
-        <li><a href="<?php echo base_url('admin/verifikasi')?>"><i class="fa fa-newspaper-o"></i>Data Pengolah Informasi</a></li> 
+        <li><a href="<?php echo base_url('admin/approve')?>"><i class="fa fa-newspaper-o"></i>Data Pengolah Informasi</a></li> 
     <?php } ?>
 
     <!-- Berita -->           

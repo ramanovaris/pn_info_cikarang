@@ -27,7 +27,7 @@ class Verifikasi extends CI_Controller {
 		$data = array(
 								'id_pemohon'							=> $id_pemohon,
 								'status_permohonan'				=> 'TERIMA',
-								'nama_verifikator' 				=> $this->session->userdata('nama'),
+								'id_verifikator' 				=> $this->session->userdata('id'),
 								'tanggal_verifikasi'			=> date('Y-m-d H:i:s')
 								);
 		$this->verifikasi_model->update_sts_pengajuan($data);
@@ -40,7 +40,7 @@ class Verifikasi extends CI_Controller {
 		$data = array(
 								'id_pemohon'							=> $id_pemohon,
 								'status_permohonan'				=> 'TOLAK',
-								'nama_verifikator' 				=> $this->session->userdata('nama'),
+								'id_verifikator' 				=> $this->session->userdata('id'),
 								'tanggal_verifikasi'			=> date('Y-m-d H:i:s')
 								);
 		$this->verifikasi_model->update_sts_pengajuan($data);
