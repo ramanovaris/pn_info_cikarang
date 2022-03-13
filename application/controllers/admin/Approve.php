@@ -37,7 +37,7 @@ class Approve extends CI_Controller {
 					// redirect(base_url('admin/verifikasi'));
 
 					$config['upload_path'] 		= './assets/upload/lampiran/';
-					$config['allowed_types'] 	= 'gif|jpg|png|svg|txt|pdf|xls|xlsx';
+					$config['allowed_types'] 	= 'gif|jpg|png|svg|txt|pdf|xls|xlsx|doc|docx';
 					$config['max_size']			= '12000'; // KB	
 					$config['file_name'] = date("dmY_His").'_'.$_FILES['lampiran']['name'];
 
