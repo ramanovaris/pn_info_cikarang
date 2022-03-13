@@ -3,43 +3,29 @@
 <ul class="nav" id="main-menu">
     
     <!-- Dasbor --> 
-    <li><a href="<?php echo base_url('admin/dasbor') ?>"><i class="fa fa-dashboard"></i> Dasbor</a></li>       
-    
-    <!-- Produk -->           
-   <!-- <li><a href="#"><i class="fa fa-book"></i> Produk<span class="fa arrow"></span></a>
-        <ul class="nav nav-second-level">
-            <li><a href="<?php echo base_url('admin/produk')?>">Data Produk</a></li>
-            <li><a href="<?php echo base_url('admin/produk/tambah')?>">Tambah Produk</a></li>
-            <li><a href="<?php echo base_url('admin/kategori_produk')?>">Kategori Produk</a></li>
-        </ul>
-    </li>  -->
+    <li><a href="<?php echo base_url('admin/dasbor') ?>"><i class="fa fa-dashboard"></i> Dasbor</a></li>
 
-    <!-- Data Verfikasi -->           
-   <li><a href="<?php echo base_url('admin/verifikasi')?>"><i class="fa fa-newspaper-o"></i>Data Verifikasi</a>
-        <!-- <ul class="nav nav-second-level"> -->
-            <!-- <li><a href="<?php echo base_url('admin/berita')?>">Data Verifikasi</a></li> -->
-        <!-- </ul> -->
-    </li> 
-    
+    <!-- Data Verfikasi -->     
+    <?php if($this->session->userdata('akses_level') == 'Verifikator' || $this->session->userdata('akses_level') == 'Super Admin') {?>          
+        <li><a href="<?php echo base_url('admin/verifikasi')?>"><i class="fa fa-newspaper-o"></i>Data Verifikasi</a></li> 
+    <?php } ?>
+
+    <!-- Data Olah Informasi -->     
+    <?php if($this->session->userdata('akses_level') == 'PTSP' || $this->session->userdata('akses_level') == 'Super Admin') {?>      
+        <li><a href="<?php echo base_url('admin/verifikasi')?>"><i class="fa fa-newspaper-o"></i>Data Pengolah Informasi</a></li> 
+    <?php } ?>
+
     <!-- Berita -->           
-   <li><a href="#"><i class="fa fa-newspaper-o"></i> Berita<span class="fa arrow"></span></a>
+    <li><a href="#"><i class="fa fa-newspaper-o"></i> Berita<span class="fa arrow"></span></a>
         <ul class="nav nav-second-level">
             <li><a href="<?php echo base_url('admin/berita')?>">Data Berita</a></li>
             <li><a href="<?php echo base_url('admin/berita/tambah')?>">Tambah Berita</a></li>
             <li><a href="<?php echo base_url('admin/kategori_berita')?>">Kategori Berita</a></li>
         </ul>
     </li> 
-    
-    <!-- Modul Video -->
-    <!-- <li><a href="#"><i class="fa fa-film"></i> Video<span class="fa arrow"></span></a>
-        <ul class="nav nav-second-level">
-            <li><a href="<?php echo base_url('admin/video')?>">Data Video</a></li>
-            <li><a href="<?php echo base_url('admin/video/tambah')?>">Tambah Video</a></li>
-        </ul>
-    </li>  -->
-    
+
     <!-- Modul User -->
-    <?php if($this->session->userdata('akses_level') == 'Admin') {?>
+    <?php if($this->session->userdata('akses_level') == 'Super Admin') {?>
         <li><a href="#"><i class="fa fa-users"></i> User/Administrator<span class="fa arrow"></span></a>
             <ul class="nav nav-second-level">
                 <li><a href="<?php echo base_url('admin/user')?>">Data User/Administrator</a></li>
@@ -49,7 +35,7 @@
     <?php } ?>
     
     <!-- Modul Konfigurasi -->
-    <?php if($this->session->userdata('akses_level') == 'Admin') {?>
+    <?php if($this->session->userdata('akses_level') == 'Super Admin') {?>
         <li><a href="#"><i class="fa fa-wrench"></i> Konfigurasi Website<span class="fa arrow"></span></a>
             <ul class="nav nav-second-level">
                 <li><a href="<?php echo base_url('admin/dasbor/konfigurasi')?>">Konfigurasi Umum</a></li>
@@ -59,7 +45,23 @@
             </ul>
         </li> 
     <?php } ?> 
- 
+    
+    <!-- Produk -->           
+   <!-- <li><a href="#"><i class="fa fa-book"></i> Produk<span class="fa arrow"></span></a>
+        <ul class="nav nav-second-level">
+            <li><a href="<?php echo base_url('admin/produk')?>">Data Produk</a></li>
+            <li><a href="<?php echo base_url('admin/produk/tambah')?>">Tambah Produk</a></li>
+            <li><a href="<?php echo base_url('admin/kategori_produk')?>">Kategori Produk</a></li>
+        </ul>
+    </li>  -->
+    
+    <!-- Modul Video -->
+    <!-- <li><a href="#"><i class="fa fa-film"></i> Video<span class="fa arrow"></span></a>
+        <ul class="nav nav-second-level">
+            <li><a href="<?php echo base_url('admin/video')?>">Data Video</a></li>
+            <li><a href="<?php echo base_url('admin/video/tambah')?>">Tambah Video</a></li>
+        </ul>
+    </li>  -->
 </ul>
 
 </div>
