@@ -37,8 +37,9 @@ class Approve extends CI_Controller {
 					// redirect(base_url('admin/verifikasi'));
 
 					$config['upload_path'] 		= './assets/upload/lampiran/';
-					$config['allowed_types'] 	= 'gif|jpg|png|svg';
+					$config['allowed_types'] 	= 'gif|jpg|png|svg|txt|pdf|xls|xlsx';
 					$config['max_size']			= '12000'; // KB	
+					$config['file_name'] = date("dmY_His").'_'.$_FILES['lampiran']['name'];
 
 					$this->load->library('upload', $config);
 
@@ -77,7 +78,7 @@ class Approve extends CI_Controller {
 											'id_pengolah_data'				=> $this->session->userdata('id'),
 											'tanggal_proses'			=> date('Y-m-d H:i:s'),
 											'status_permohonan'				=> 'SELESAI',
-											'lampiran'				=> date("dmY_His").'_'.$upload_data['uploads']['file_name']
+											'lampiran'				=> $upload_data['uploads']['file_name']
 										);
 
 						$this->approve_model->edit($data);
