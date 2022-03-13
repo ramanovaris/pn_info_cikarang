@@ -8,6 +8,7 @@
         <th>Nama</th>
         <th>Email</th>
         <th>Username</th>
+        <th>Level User</th>
         <th>Action</th>
     </tr>
 </thead>
@@ -18,6 +19,7 @@
         <td><?php echo $user->nama ?></td>
         <td><?php echo $user->email ?></td>
         <td><?php echo $user->username ?></td>
+        <td><?php echo $user->akses_level ?></td>
         <td>
         <a href="<?php echo base_url('admin/user/edit/'.$user->id_user) ?>"class="btn btn-primary btn-sm"><i class="fa fa-edit"></i></a>
         
