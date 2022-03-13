@@ -13,24 +13,13 @@ class Verifikasi_model extends CI_Model {
 	public function listing() {
 		$sql= "
 		SELECT
-			IF(a.`status_permohonan`='BELUM DIVERIKASI',
-				1
-				,
-				IF(a.`status_permohonan`='TOLAK',
-					2
-					,
-					0=0
-				)
-			) AS urut,
 			a.*
 		FROM `permohonan_informasi` a
 		WHERE
 			a.`status_permohonan` in (
-				'BELUM DIVERIFIKASI',
-				'TOLAK'
+				'BELUM DIVERIFIKASI'
 			)
 		ORDER BY
-						urut ASC,
 						tanggal_permohonan ASC
 		";    
 		$query = $this->db->query($sql);
