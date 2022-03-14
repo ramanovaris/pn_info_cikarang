@@ -98,4 +98,30 @@ class Approve extends CI_Controller {
 						'isi'		=> 'admin/approve/edit'); 
 		$this->load->view('admin/layout/wrapper', $data);
 	}
+
+	//Permohonon yg sdh selesai di proses
+	public function selesai() {
+		$status = 'SELESAI';
+		$approve = $this->approve_model->listing_by_status($status);
+		
+		$data = array(	
+							'title'		=> 'Data Riwayat Kirim Informasi',
+							'approve'	=> $approve,
+							'isi'		=> 'admin/approve/list_status_selesai'
+						);
+		$this->load->view('admin/layout/wrapper', $data);
+	}
+
+	//Permohonon yg ditolak
+	public function tolak() {
+		$status = 'TOLAK';
+		$approve = $this->approve_model->listing_by_status($status);
+		
+		$data = array(	
+							'title'		=> 'Data Permohonan Ditolak',
+							'approve'	=> $approve,
+							'isi'		=> 'admin/approve/list_status_tolak'
+						);
+		$this->load->view('admin/layout/wrapper', $data);
+	}
 }

@@ -15,6 +15,16 @@
         <li><a href="<?php echo base_url('admin/approve')?>"><i class="fa fa-newspaper-o"></i>Data Pengolah Informasi</a></li> 
     <?php } ?>
 
+    <!-- Data Riwayat Kirim Informasi -->     
+    <?php if($this->session->userdata('akses_level') == 'PTSP' || $this->session->userdata('akses_level') == 'Super Admin') {?>      
+        <li><a href="<?php echo base_url('admin/approve/selesai')?>"><i class="fa fa-newspaper-o"></i>Data Riwayat Kirim Informasi</a></li> 
+    <?php } ?>
+
+    <!-- Data Permohonan Ditolak -->     
+    <?php if($this->session->userdata('akses_level') == 'PTSP' || $this->session->userdata('akses_level') == 'Super Admin') {?>      
+        <li><a href="<?php echo base_url('admin/approve/tolak')?>"><i class="fa fa-newspaper-o"></i>Data Permohonan Ditolak</a></li> 
+    <?php } ?>
+
     <!-- Berita -->           
     <li><a href="#"><i class="fa fa-newspaper-o"></i> Berita<span class="fa arrow"></span></a>
         <ul class="nav nav-second-level">

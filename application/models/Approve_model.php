@@ -44,4 +44,24 @@ class Approve_model extends CI_Model {
 		$this->db->where('id_pemohon',$data['id_pemohon']);
 		$this->db->update('permohonan_informasi',$data);
 	}
+
+	//Listing
+	public function listing_by_status($status) {
+		$sql= "
+		SELECT
+			b.`nama` AS nama_verifikator,
+			c.`nama` AS nama_approvel,
+			a.*
+		FROM `permohonan_informasi` a
+		LEFT JOIN users b ON a.`id_verifikator` = b.`id_user`
+		LEFT JOIN users c ON a.`id_pengolah_data` = c.`id_user`
+		WHERE
+			a.`status_permohonan` IN (
+				'".$status."'
+			)
+		ORDER BY tanggal_permohonan ASC
+		";    
+		$query = $this->db->query($sql);
+		return $query->result();
+	}
 }

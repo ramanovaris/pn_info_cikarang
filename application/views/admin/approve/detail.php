@@ -11,7 +11,7 @@
         <div class="modal-content">
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                <h4 class="modal-title" id="myModalLabel">Detail Permohonan Informasi</h4>
+                <h4 class="modal-title" id="myModalLabel">Data Detail</h4>
             </div>
             <div class="modal-body">
 			<!-- <p class="alert alert-success">Yakin ingin menghapus  berita ini?</p> -->
