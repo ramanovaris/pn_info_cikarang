@@ -15,15 +15,23 @@
         <li><a href="<?php echo base_url('admin/approve')?>"><i class="fa fa-newspaper-o"></i>Data Pengolah Informasi</a></li> 
     <?php } ?>
 
+    <!-- Data Riwayat -->           
+    <li><a href="#"><i class="fa fa-newspaper-o"></i> Riwayat Permohonan Informasi<span class="fa arrow"></span></a>
+        <ul class="nav nav-second-level">
+            <li><a href="<?php echo base_url('admin/approve/selesai')?>">Data Pengajuan Permohonan Informasi yang Terkirim</a></li> 
+            <li><a href="<?php echo base_url('admin/approve/tolak')?>">Data Pengajuan Permohonan Informasi yang Ditolak</a></li> 
+        </ul>
+    </li> 
+
     <!-- Data Riwayat Kirim Informasi -->     
-    <?php if($this->session->userdata('akses_level') == 'PTSP' || $this->session->userdata('akses_level') == 'Super Admin') {?>      
+    <!-- <?php if($this->session->userdata('akses_level') == 'PTSP' || $this->session->userdata('akses_level') == 'Super Admin') {?>      
         <li><a href="<?php echo base_url('admin/approve/selesai')?>"><i class="fa fa-newspaper-o"></i>Data Riwayat Kirim Informasi</a></li> 
-    <?php } ?>
+    <?php } ?> -->
 
     <!-- Data Permohonan Ditolak -->     
-    <?php if($this->session->userdata('akses_level') == 'PTSP' || $this->session->userdata('akses_level') == 'Super Admin') {?>      
+    <!-- <?php if($this->session->userdata('akses_level') == 'PTSP' || $this->session->userdata('akses_level') == 'Super Admin') {?>      
         <li><a href="<?php echo base_url('admin/approve/tolak')?>"><i class="fa fa-newspaper-o"></i>Data Permohonan Ditolak</a></li> 
-    <?php } ?>
+    <?php } ?> -->
 
     <!-- Berita -->           
     <li><a href="#"><i class="fa fa-newspaper-o"></i> Berita<span class="fa arrow"></span></a>

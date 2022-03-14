@@ -105,7 +105,7 @@ class Approve extends CI_Controller {
 		$approve = $this->approve_model->listing_by_status($status);
 		
 		$data = array(	
-							'title'		=> 'Data Riwayat Kirim Informasi',
+							'title'		=> 'Data Pengajuan Permohonan Informasi yang Terkirim',
 							'approve'	=> $approve,
 							'isi'		=> 'admin/approve/list_status_selesai'
 						);
@@ -118,7 +118,7 @@ class Approve extends CI_Controller {
 		$approve = $this->approve_model->listing_by_status($status);
 		
 		$data = array(	
-							'title'		=> 'Data Permohonan Ditolak',
+							'title'		=> 'Data Pengajuan Permohonan Informasi yang Ditolak',
 							'approve'	=> $approve,
 							'isi'		=> 'admin/approve/list_status_tolak'
 						);
