@@ -1,0 +1,42 @@
+	INSERT INTO hpp_gudang_aspal(
+		trans_code,
+		trans_id,
+		bukti_no,
+		bukti_date,
+		gud_code,
+		bar_code,
+		qty,
+		amount,
+		hpp,
+		tipe,
+		post,
+		cab_code,
+		update_datetime,
+		update_user,
+		update_ip,
+		update_count,
+		bukti_no2
+	)
+
+	SELECT 
+		b.`jns_trans` AS trans_code,
+		NEW.id AS trans_id,
+		NEW.beli_bukti_no AS bukti_no,
+		b.`beli_bukti_date` AS bukti_date,
+		NEW.gud_code AS gud_code,
+		'0093' AS bar_code,
+		NEW.`fl_qty` AS qty,
+		NEW.net AS amount,
+		NEW.price AS hpp,
+		IFNULL(IF(b.jns_trans = 'PEMBELIAN','0','1'),0) AS tipe,
+		'0' AS post,
+		b.cab_code,
+		NOW()AS update_datetime,
+		NEW.update_user,
+		b.update_ip,
+		b.update_count,
+		b.`fl_bukti_no`
+	FROM t_pembelian_solar b 
+	JOIN t_pembelian_solar_detail a ON b.beli_bukti_no=a.beli_bukti_no 
+	WHERE 
+		b.beli_bukti_no=NEW.beli_bukti_no

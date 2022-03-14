@@ -18,10 +18,10 @@
         <th>Kode Pendaftaran</th>
         <th>Nama Pemohon</th>
         <th>Tujuan</th>
-        <th>Tanggal Verifikasi</th>
-        <th>Nama Verifikator</th>
-        <th>Tanggal Approve</th>
-        <th>Nama Approvel</th>
+        <th>Tanggal Kirim</th>
+        <th>Nama Pengolah Informasi</th>
+        <th>Tanggal Disetujui PPID</th>
+        <th>Nama PPID</th>
         <th>Detail</th>
     </tr>
 </thead>
@@ -31,8 +31,7 @@
         <td><?php echo $i ?></td>
         <td>
             <?php
-                $date = date_create($approve->tanggal_permohonan);
-                echo date_format($date,"d M Y");  
+                echo $approve->tanggal_permohonan  
             ?>
         </td>
         <td>
@@ -46,21 +45,19 @@
         </td>
         <td>
             <?php
-                $date = date_create($approve->tanggal_verifikasi);
-                echo date_format($date,"d M Y");  
+                echo $approve->tanggal_proses 
             ?>
         </td>
         <td>
-            <?php echo $approve->nama_verifikator ?>
+            <?php echo $approve->nama_pengolah_data ?>
         </td>
         <td>
             <?php
-                $date = date_create($approve->tanggal_proses);
-                echo date_format($date,"d M Y");  
+                echo $approve->tgl_persetujuan_ppid
             ?>
         </td>
         <td>
-            <?php echo $approve->nama_approvel ?>
+            <?php echo $approve->nama_ppid ?>
         </td>
         <td>
             <?php include('detail.php') ?>

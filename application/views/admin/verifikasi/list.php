@@ -22,8 +22,8 @@ echo validation_errors('<div class="alert alert-success">','</div>');
         <th>Tanggal Permohonan</th>
         <th>Kode Pendaftaran</th>
         <th>Nama Pemohon</th>
-        <th>Tujuan</th>
-        <th>Status Permohonan</th>
+        <th>Tanggal Ajukan Persetujuan</th>
+        <th>Nama Ajukan Persetujuan</th>
         <th>Detail</th>
         <th>Action</th>
     </tr>
@@ -34,8 +34,7 @@ echo validation_errors('<div class="alert alert-success">','</div>');
         <td><?php echo $i ?></td>
         <td>
             <?php
-                $date = date_create($verifikasi->tanggal_permohonan);
-                echo date_format($date,"d M Y");  
+                echo $verifikasi->tanggal_permohonan
             ?>
         </td>
         <td>
@@ -45,10 +44,12 @@ echo validation_errors('<div class="alert alert-success">','</div>');
             <?php echo $verifikasi->nama_pemohon ?>
         </td>
         <td>
-            <?php echo $verifikasi->tujuan ?>
+            <?php
+                echo $verifikasi->tgl_ajukan
+            ?>
         </td>
         <td>
-            <?php echo $verifikasi->status_permohonan ?>
+            <?php echo $verifikasi->nama_ajukan ?>
         </td>
         <td>
             <?php include('detail.php') ?>

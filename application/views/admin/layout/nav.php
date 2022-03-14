@@ -5,14 +5,14 @@
     <!-- Dasbor --> 
     <li><a href="<?php echo base_url('admin/dasbor') ?>"><i class="fa fa-dashboard"></i> Dasbor</a></li>
 
-    <!-- Data Verfikasi -->     
-    <?php if($this->session->userdata('akses_level') == 'Verifikator' || $this->session->userdata('akses_level') == 'Super Admin') {?>          
-        <li><a href="<?php echo base_url('admin/verifikasi')?>"><i class="fa fa-newspaper-o"></i>Data Verifikasi</a></li> 
+    <!-- Data Olah Informasi -->     
+    <?php if($this->session->userdata('akses_level') == 'Pengolah Informasi' || $this->session->userdata('akses_level') == 'Super Admin') {?>      
+        <li><a href="<?php echo base_url('admin/approve')?>"><i class="fa fa-newspaper-o"></i>Data Pengolah Informasi</a></li> 
     <?php } ?>
 
-    <!-- Data Olah Informasi -->     
-    <?php if($this->session->userdata('akses_level') == 'PTSP' || $this->session->userdata('akses_level') == 'Super Admin') {?>      
-        <li><a href="<?php echo base_url('admin/approve')?>"><i class="fa fa-newspaper-o"></i>Data Pengolah Informasi</a></li> 
+    <!-- Data PPID -->     
+    <?php if($this->session->userdata('akses_level') == 'PPID' || $this->session->userdata('akses_level') == 'Super Admin') {?>          
+        <li><a href="<?php echo base_url('admin/verifikasi')?>"><i class="fa fa-newspaper-o"></i>Data PPID</a></li> 
     <?php } ?>
 
     <!-- Data Riwayat -->           

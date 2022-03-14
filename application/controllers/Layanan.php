@@ -97,9 +97,6 @@ class Layanan extends CI_Controller {
 		// Validasi
 		$v = $this->form_validation;
 
-		$v->set_rules('tgl_pemberitahuan','Tgl_pemberitahuan','required',
-			array(	'required'		=> 'Tanggal Pemberitahuan harus diisi'));
-
 		$v->set_rules('nama','Nama','required',
 			array(	'required'		=> 'Nama harus diisi'));
 
@@ -142,7 +139,6 @@ class Layanan extends CI_Controller {
 								// 'id_user'				=> $this->session->userdata('id'),
 								'kode_pemohon'			=> $kode_pemohon,
 								'tanggal_permohonan' => date('Y-m-d H:i:s'),
-								'tgl_pemberitahuan'			=> $i->post('tgl_pemberitahuan'),
 								'nama_pemohon'			=> $i->post('nama'),
 								'alamat'			=> $i->post('alamat'),
 								'pekerjaan'			=> $i->post('pekerjaan'),

@@ -18,8 +18,8 @@
         <th>Kode Pendaftaran</th>
         <th>Nama Pemohon</th>
         <th>Tujuan</th>
-        <th>Tanggal Verifikasi</th>
-        <th>Nama Verifikator</th>
+        <th>Tanggal Persetujuan PPID</th>
+        <th>Nama PPID</th>
         <th>Detail</th>
         <th>Action</th>
     </tr>
@@ -30,8 +30,7 @@
         <td><?php echo $i ?></td>
         <td>
             <?php
-                $date = date_create($approve->tanggal_permohonan);
-                echo date_format($date,"d M Y");  
+                echo $approve->tanggal_permohonan
             ?>
         </td>
         <td>
@@ -44,21 +43,37 @@
             <?php echo $approve->tujuan ?>
         </td>
         <td>
-            <?php
-                $date = date_create($approve->tanggal_verifikasi);
-                echo date_format($date,"d M Y");  
+            <?php 
+                echo $approve->tgl_persetujuan_ppid
             ?>
         </td>
         <td>
-            <?php echo $approve->nama_verifikator ?>
+            <?php echo $approve->nama_petugas_ppid ?>
         </td>
         <td>
             <?php include('detail.php') ?>
         </td>
         <td>
-            <button class="myButton-green" onclick="location.href='<?php echo base_url('admin/approve/edit/'.$approve->id_pemohon) ?>'">
-                <i class="fa fa-upload"></i>
-            </button>
+            <!-- jika status terima atau tolak maka button upload file di hidden -->
+            <?php if($approve->status_permohonan == 'TOLAK'): ?>
+                
+            <?php else: ?>
+                <button class="myButton-blue" title="Upload File" onclick="location.href='<?php echo base_url('admin/approve/edit/'.$approve->id_pemohon) ?>'">
+                    <i class="fa fa-upload"></i>
+                </button>
+            <?php endif; ?>
+            
+            <!-- jika status terima atau tolak maka button ajukan di hidden -->
+            <?php 
+                if($approve->status_permohonan == 'TERIMA'){
+                    
+                }elseif($approve->status_permohonan == 'TOLAK'){
+                    include('tolak.php');
+                }else{
+                    include('ajukan.php');
+                }
+                
+            ?>
         </td>
     </tr>
 <?php $i++; } ?>

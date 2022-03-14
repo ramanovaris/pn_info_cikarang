@@ -2,7 +2,7 @@
   <i class="fa fa-trash-o"></i>
 </button> -->
 
-<button class="myButton-yellow" data-toggle="modal" data-target="#Detail<?php echo $approve->id_pemohon ?>">
+<button class="myButton-yellow" title="Detail"  data-toggle="modal" data-target="#Detail<?php echo $approve->id_pemohon ?>">
     <span class="glyphicon glyphicon-eye-open"></span>
 </button>
 
@@ -26,18 +26,7 @@
                         <td>: </td>
                         <td>
                             <?php
-                                $date = date_create($approve->tanggal_permohonan);
-                                echo date_format($date,"d M Y");  
-                            ?>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>Tanggal Pemberitahuan</td>
-                        <td>:</td>
-                        <td>
-                            <?php
-                                $date = date_create($approve->tgl_pemberitahuan);
-                                echo date_format($date,"d M Y");  
+                                echo $approve->tanggal_permohonan;
                             ?>
                         </td>
                     </tr>

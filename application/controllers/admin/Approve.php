@@ -20,11 +20,23 @@ class Approve extends CI_Controller {
 						);
 		$this->load->view('admin/layout/wrapper', $data);
 	}
+
+	// AJUKAN PENGAJUAN ke PPID
+	public function ajukan($id_pemohon) {
+		$data = array(
+								'id_pemohon'							=> $id_pemohon,
+								'status_permohonan'				=> 'AJUKAN',
+								'id_ajukan' 				=> $this->session->userdata('id'),
+								'tgl_ajukan'			=> date('Y-m-d H:i:s')
+								);
+		$this->approve_model->update_sts_pengajuan($data);
+		$this->session->set_flashdata('sukses','Pengajuan Telah Di Terima!');
+		redirect(base_url('admin/approve'));
+	}
 	
 	// Edit
 	public function edit($id_pemohon) {
 		$approve		= $this->approve_model->detail($id_pemohon);
-		// // $kategori	= $this->kategori_berita_model->listing();
 
 		// Validasi
 		$v = $this->form_validation;
@@ -34,8 +46,6 @@ class Approve extends CI_Controller {
 		
 		if($v->run()) {
 				if(!empty($_FILES['lampiran']['name'])) {
-					// redirect(base_url('admin/verifikasi'));
-
 					$config['upload_path'] 		= './assets/upload/lampiran/';
 					$config['allowed_types'] 	= 'gif|jpg|png|svg|txt|pdf|xls|xlsx|doc|docx';
 					$config['max_size']			= '12000'; // KB	
@@ -99,10 +109,9 @@ class Approve extends CI_Controller {
 		$this->load->view('admin/layout/wrapper', $data);
 	}
 
-	//Permohonon yg sdh selesai di proses
+	//Permohonon yg sdh selesai di proses dan ada lampiran file yg dikirim
 	public function selesai() {
-		$status = 'SELESAI';
-		$approve = $this->approve_model->listing_by_status($status);
+		$approve = $this->approve_model->listing_pengajuan_selesai_terima();
 		
 		$data = array(	
 							'title'		=> 'Data Pengajuan Permohonan Informasi yang Terkirim',
@@ -112,10 +121,9 @@ class Approve extends CI_Controller {
 		$this->load->view('admin/layout/wrapper', $data);
 	}
 
-	//Permohonon yg ditolak
+	//Permohonon yg ditolak dan selesai di proses tapi tdk ada lampiran file yg dikirim
 	public function tolak() {
-		$status = 'TOLAK';
-		$approve = $this->approve_model->listing_by_status($status);
+		$approve = $this->approve_model->listing_pengajuan_selesai_tolak();
 		
 		$data = array(	
 							'title'		=> 'Data Pengajuan Permohonan Informasi yang Ditolak',
@@ -124,4 +132,20 @@ class Approve extends CI_Controller {
 						);
 		$this->load->view('admin/layout/wrapper', $data);
 	}
+
+	//Kirim Surat Penolak Via EMAIL
+	public function kirim_srt_penolakan($id_pemohon) {
+		$i = $this->input;
+		$data = array(
+							'id_pemohon'				=> $id_pemohon,
+							'id_pengolah_data'				=> $this->session->userdata('id'),
+							'tanggal_proses'			=> date('Y-m-d H:i:s'),
+							'status_permohonan'				=> 'SELESAI'
+						);
+
+		$this->approve_model->edit($data);
+		$this->session->set_flashdata('sukses','Kirim Surat Penolakan Berhasil!');
+		redirect(base_url('admin/approve'));
+	}
+	
 }

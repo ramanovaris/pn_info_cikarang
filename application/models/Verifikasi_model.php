@@ -13,15 +13,39 @@ class Verifikasi_model extends CI_Model {
 	public function listing() {
 		$sql= "
 		SELECT
-			a.*
+			b.`nama` AS nama_ajukan,
+			a.`id_pemohon`,
+			a.`kode_pemohon`,
+			a.`nama_pemohon`,
+			a.`alamat`,
+			a.`pekerjaan`,
+			a.`email`,
+			a.`no_telpon`,
+			a.`rincian_informasi`,
+			a.`tujuan`,
+			a.`cara_peroleh_info`,
+			a.`salinan`,
+			a.`via`,
+			DATE_FORMAT(a.`tanggal_permohonan`, '%d %M %Y') AS tanggal_permohonan,
+			a.`id_verifikator`,
+			a.`update_time`,
+			DATE_FORMAT(a.`tanggal_verifikasi`, '%d %M %Y') AS tanggal_verifikasi,
+			a.`id_pengolah_data`,
+			DATE_FORMAT(a.`tanggal_proses`, '%d %M %Y') AS tanggal_proses,
+			a.`status_permohonan`,
+			a.`lampiran`,
+			DATE_FORMAT(a.`tgl_ajukan`, '%d %M %Y') AS tgl_ajukan,
+			a.`id_ajukan`,
+			DATE_FORMAT(a.`tgl_persetujuan_ppid`, '%d %M %Y') AS tgl_persetujuan_ppid,
+			a.`id_setujui_ppid`
 		FROM `permohonan_informasi` a
+		LEFT JOIN users b ON a.`id_ajukan` = b.`id_user`
 		WHERE
-			a.`status_permohonan` in (
-				'BELUM DIVERIFIKASI'
+			a.`status_permohonan` IN (
+				'AJUKAN'
 			)
-		ORDER BY
-						tanggal_permohonan ASC
-		";    
+		ORDER BY tanggal_permohonan ASC
+	";    
 		$query = $this->db->query($sql);
 		return $query->result();
 	}

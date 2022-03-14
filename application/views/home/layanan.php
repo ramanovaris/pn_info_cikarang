@@ -1,25 +1,3 @@
-<!--baner-->
-<!-- <div class="baner about-bnr">
-	<div class="container">
-		<div class="baner-grids">
-			<div class="col-md-6 baner-top">
-				<img src="<?php echo base_url() ?>assets/front/images/img16.jpg" alt=""/>
-			</div>
-			<div class="col-md-6 baner-top">
-				<img src="<?php echo base_url() ?>assets/front/images/img17.jpg" alt=""/>
-			</div>
-			<div class="clearfix"> </div>
-		</div>
-	</div>
-</div> -->
-	<!--//baner-->
-  
-	<!--map-->
-	<!-- <div class="map">
-		<?php echo $site['google_map'] ?>
-	</div> -->
-	<!--//map-->
-
 	<!--contact-->
 	<div class="contact">
 		<div class="container">
@@ -39,12 +17,6 @@
         ?>
 
         <form method="post" action="<?php echo base_url('layanan/tambah') ?>">
-            <div class="col-md-12 cnt-inpt">
-              <label>Tanggal Pemberitahuan : </label>
-              <input type="date" id="tgl_pemberitahuan" name="tgl_pemberitahuan" placeholder="Tgl" required>
-            </div>
-
-        
           <div class="col-md-12 cnt-inpt">
             <label>Nama Lengkap : </label>
             <input type="text" name="nama" value="<?php echo set_value('nama') ?>" placeholder="Nama" required

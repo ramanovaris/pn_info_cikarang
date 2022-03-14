@@ -15,7 +15,7 @@ class Verifikasi extends CI_Controller {
 		$verifikasi = $this->verifikasi_model->listing();
 		
 		$data = array(	
-							'title'		=> 'Data Verifikasi Permohonan Informasi',
+							'title'		=> 'Data PPID',
 							'verifikasi'	=> $verifikasi,
 							'isi'		=> 'admin/verifikasi/list'
 						);
@@ -27,8 +27,8 @@ class Verifikasi extends CI_Controller {
 		$data = array(
 								'id_pemohon'							=> $id_pemohon,
 								'status_permohonan'				=> 'TERIMA',
-								'id_verifikator' 				=> $this->session->userdata('id'),
-								'tanggal_verifikasi'			=> date('Y-m-d H:i:s')
+								'id_setujui_ppid' 				=> $this->session->userdata('id'),
+								'tgl_persetujuan_ppid'			=> date('Y-m-d H:i:s')
 								);
 		$this->verifikasi_model->update_sts_pengajuan($data);
 		$this->session->set_flashdata('sukses','Pengajuan Telah Di Terima!');
@@ -39,9 +39,9 @@ class Verifikasi extends CI_Controller {
 	public function tolak($id_pemohon) {
 		$data = array(
 								'id_pemohon'							=> $id_pemohon,
-								'status_permohonan'				=> 'TOLAK',
-								'id_verifikator' 				=> $this->session->userdata('id'),
-								'tanggal_verifikasi'			=> date('Y-m-d H:i:s')
+								'status_permohonan'				=> 'TOLAK'
+								// 'id_setujui_ppid' 				=> $this->session->userdata('id'),
+								// 'tgl_persetujuan_ppid'			=> date('Y-m-d H:i:s')
 								);
 		$this->verifikasi_model->update_sts_pengajuan($data);
 		$this->session->set_flashdata('sukses','Pengajuan Telah Di Tolak!');
