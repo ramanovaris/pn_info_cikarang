@@ -19,7 +19,7 @@ padding: 15px 50px 5px 50px;
 float: right;
 font-size: 16px;"> <?php echo date('d M Y') ?> &nbsp; 
 
-<a href="<?php echo base_url('admin/dasbor/profil') ?>" class="btn btn-success square-btn-adjust"><i class="fa fa-user"></i> <?php echo $user_aktif->nama ?></a>
+<a href="#" class="btn btn-success square-btn-adjust"><i class="fa fa-user"></i> <?php echo $user_aktif->nama ?></a>
 
 <a href="<?php echo base_url('login/logout') ?>" class="btn btn-danger square-btn-adjust"><i class="fa fa-sign-out"></i> Logout</a> 
 
