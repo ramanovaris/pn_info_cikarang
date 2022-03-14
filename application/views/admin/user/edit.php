@@ -27,8 +27,9 @@ echo form_open(base_url('admin/user/edit/'.$user->id_user));
 <div class="form-group">
 <label>Level Hak Akses</label>
 <select name="akses_level" class="form-control">
-	<option value="Admin">Admin</option>
-    <option value="User">User</option>
+    <option value="Super Admin">Super Admin</option>
+    <option value="PPID">PPID</option>
+    <option value="Pengolah Informasi">Pengolah Informasi</option>
 </select>
 </div>
     
