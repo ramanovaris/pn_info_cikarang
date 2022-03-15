@@ -8,6 +8,7 @@
  * @link        https://github.com/ardianta/codeigniter-dompdf
  */
 use Dompdf\Dompdf;
+use Dompdf\Exception;
 class Pdf extends Dompdf{
     /**
      * @var 
@@ -15,14 +16,13 @@ class Pdf extends Dompdf{
     public $filename;
     public function __construct(){
         parent::__construct();
-        $this->filename = "laporan.pdf";
+        $this->filename = "laporans.pdf";
     }
     /**
      * @access    protected
      * @return    
      */
-    protected function ci()
-    {
+    protected function ci(){
         return get_instance();
     }
     /**
@@ -38,5 +38,15 @@ class Pdf extends Dompdf{
         $this->render();
         // Output the generated PDF to Browser
         $this->stream($this->filename, array("Attachment" => false));
+    }
+
+    public function createPDF($html, $filename='', $paper = 'A4', $orientation = 'portrait'){
+        define('DOMPDF_ENABLE_AUTOLOAD', false);
+        $dompdf = new DOMPDF();
+        $dompdf->load_html($html);
+        $dompdf->setPaper($paper, $orientation);
+        $dompdf->render();
+        $output = $dompdf->output();
+        file_put_contents('assets/generate_pdf/'.$filename, $output);
     }
 }

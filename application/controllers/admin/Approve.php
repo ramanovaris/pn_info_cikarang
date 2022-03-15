@@ -136,11 +136,71 @@ class Approve extends CI_Controller {
 
 	//Kirim Surat Penolak Via EMAIL
 	public function kirim_srt_penolakan($id_pemohon) {
-
+		////////////// Creat PDF ///////////////////////////
+		// panggil library pdf
     $this->load->library('pdf');
     $customPaper = array(0,0,381.89,595.28);
     $this->pdf->setPaper($customPaper, 'landscape');
-    $this->pdf->load_view('admin/approve/laporan_pdf');
+
+		//get data by id
+		$approve = $this->approve_model->listing_by_id($id_pemohon);
+		//get kode_permohonan by id
+		$kode_permohonan = $this->approve_model->get_kode_permohonan($id_pemohon);
+		
+		$data = array(	
+							'title'		=> 'Data Pengolah Informasi',
+							'approve'	=> $approve,
+							'isi'		=> 'admin/approve/list'
+						);
+
+		$html = $this->load->view('admin/approve/laporan_pdf', $data, true);
+		$filename = 'SURAT KEPUTUSAN PPID TENTANG PENOLAKAN PERMOHONAN INFORMASI '.$kode_permohonan.'.pdf';
+		$createPDF = $this->pdf->createPDF($html, $filename, 'A4', 'portrait');
+
+		///////////////////// kirim email//////////////
+		// Konfigurasi email
+		$config = [
+				'mailtype'  => 'html',
+				'charset'   => 'utf-8',
+				'protocol'  => 'smtp',
+				'smtp_host' => 'smtp.gmail.com',
+				'smtp_user' => 'hantuwifi7@gmail.com',  // Email gmail
+				'smtp_pass'   => 'sulitditebak',  // Password gmail
+				'smtp_crypto' => 'ssl',
+				'smtp_port'   => 465,
+				'crlf'    => "\r\n",
+				'newline' => "\r\n"
+		];
+
+		// Load library email dan konfigurasinya
+		$this->load->library('email', $config);
+
+		// Email dan nama pengirim
+		$this->email->from('hantuwifi7@gmail.com', 'hantu');
+		// Email penerima
+		$this->email->bcc('ramaanovariss@gmail.com, theboy141198@gmail.com'); // Ganti dengan email tujuan
+		// Lampiran email, isi dengan url/path file
+		$this->email->attach('assets/generate_pdf/'.$filename);
+		// Subject email
+		$this->email->subject('Tes lagi');
+		// Isi email
+		$this->email->message("coba bcc ke 2 penerima");
+
+		// Tampilkan pesan sukses atau error
+		if ($this->email->send()) {
+				echo 'Sukses! email berhasil dikirim.';
+		} else {
+				echo 'Error! email tidak dapat dikirim.';
+				echo '<br />';
+				echo $this->email->print_debugger();
+		}
+		////////////////////////////////////////// end kirim email/////////////////////////
+		die();
+		$this->session->set_flashdata('sukses','Kirim Surat Penolakan Berhasil!');
+		redirect(base_url('admin/approve'));
+
+		// Preview PDF
+    // $html = $this->load->view('admin/layout/wrapper', $data);
 
 		$i = $this->input;
 		$data = array(

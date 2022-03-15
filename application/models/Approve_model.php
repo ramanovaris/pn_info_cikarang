@@ -192,4 +192,65 @@ class Approve_model extends CI_Model {
 			$query = $this->db->query($sql);
 			return $query->result();
 		}
+
+	//Listing by id
+	public function listing_by_id($id) {
+		$sql= "
+		SELECT
+			b.`nama` AS nama_petugas_ppid,
+			a.`id_pemohon`,
+			a.`kode_pemohon`,
+			a.`nama_pemohon`,
+			a.`alamat`,
+			a.`pekerjaan`,
+			a.`email`,
+			a.`no_telpon`,
+			a.`rincian_informasi`,
+			a.`tujuan`,
+			a.`cara_peroleh_info`,
+			a.`salinan`,
+			a.`via`,
+			DATE_FORMAT(a.`tanggal_permohonan`, '%d %M %Y') AS tanggal_permohonan,
+			a.`update_time`,
+			a.`id_pengolah_data`,
+			DATE_FORMAT(a.`tanggal_proses`, '%d %M %Y') AS tanggal_proses,
+			a.`status_permohonan`,
+			a.`lampiran`,
+			DATE_FORMAT(a.`tgl_ajukan`, '%d %M %Y') AS tgl_ajukan,
+			a.`id_ajukan`,
+			DATE_FORMAT(a.`tgl_persetujuan_ppid`, '%d %M %Y') AS tgl_persetujuan_ppid,
+			a.`id_setujui_ppid`
+		FROM `permohonan_informasi` a
+		LEFT JOIN users b ON a.`id_setujui_ppid` = b.`id_user`
+		WHERE
+			a.id_pemohon = '".$id."' and
+			a.`status_permohonan` IN (
+				'BELUM DIVERIFIKASI',
+				'TERIMA',
+				'TOLAK'
+			)
+		ORDER BY tanggal_permohonan ASC
+		";    
+		$query = $this->db->query($sql);
+		return $query->result();
+	}
+
+	public function get_kode_permohonan($id) {
+		$sql= "
+		SELECT
+			a.`kode_pemohon`
+		FROM `permohonan_informasi` a
+		LEFT JOIN users b ON a.`id_setujui_ppid` = b.`id_user`
+		WHERE
+			a.id_pemohon = '".$id."' and
+			a.`status_permohonan` IN (
+				'BELUM DIVERIFIKASI',
+				'TERIMA',
+				'TOLAK'
+			)
+		ORDER BY tanggal_permohonan ASC
+		";    
+		$query = $this->db->query($sql);
+		return $query->row()->kode_pemohon;
+	}
 }

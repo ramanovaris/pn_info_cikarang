@@ -3,7 +3,7 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <!-- <title><?= $title_pdf;?></title> -->
+        <title><?= $title;?></title>
         <style>
             #table {
                 font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
@@ -31,47 +31,34 @@
     </head>
     <body>
         <div style="text-align:center">
-            <h3> Laporan PDF Toko Kita</h3>
+            <h4> SURAT KEPUTUSAN PPID TENTANG PENOLAKAN PERMOHONAN INFORMASI </h4>
         </div>
         <table id="table">
             <thead>
                 <tr>
                     <th>No.</th>
-                    <th>Nama Produk</th>
-                    <th>Harga Jual</th>
-                    <th>Terjual</th>
-                    <th>Tanggal Transaksi</th>
+                    <th>Tanggal Permohonan</th>
+                    <th>Kode Pendaftaran</th>
+                    <th>Nama Pemohon</th>
+                    <th>Tujuan</th>
                 </tr>
             </thead>
             <tbody>
+                <?php $i=1; foreach($approve as $approve) { ?>
                 <tr>
-                    <td scope="row">1</td>
-                    <td>Kacang Goreng</td>
-                    <td>Rp5.000,-</td>
-                    <td>1</td>
-                    <td>25 Oktober 2020, 17:01:03</td>
+                    <td scope="row">
+                        <?php echo $i ?>
+                    </td>
+                    <td>
+                        <?php
+                            echo $approve->tanggal_permohonan
+                        ?>
+                    </td>
+                    <td><?php echo $approve->kode_pemohon ?></td>
+                    <td><?php echo $approve->nama_pemohon ?></td>
+                    <td><?php echo $approve->tujuan ?></td>
                 </tr>
-                <tr>
-                    <td scope="row">2</td>
-                    <td>Kopi Hitam</td>
-                    <td>Rp5.000,-</td>
-                    <td>1</td>
-                    <td>25 Oktober 2020, 16:01:03</td>
-                </tr>
-                <tr>
-                    <td scope="row">3</td>
-                    <td>Gorengan Bakwan</td>
-                    <td>Rp3.000,-</td>
-                    <td>3</td>
-                    <td>25 Oktober 2020, 15:01:02</td>
-                </tr>
-                <tr>
-                    <td scope="row">4</td>
-                    <td>Nasi uduk</td>
-                    <td>Rp14.000,-</td>
-                    <td>2</td>
-                    <td>25 Oktober 2020, 14:04:03</td>
-                </tr>
+                <?php $i++; } ?>
             </tbody>
         </table>
     </body>
