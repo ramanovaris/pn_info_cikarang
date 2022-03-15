@@ -1,0 +1,9 @@
+{
+    "name": "pn_info_cikarang/informasi",
+    "description": "untuk gunakan library domppdf",
+    "type": "project",
+    "license": "GPL",
+    "require": {
+        "dompdf/dompdf": "^0.8.3"
+    }
+}

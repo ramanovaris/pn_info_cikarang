@@ -7,6 +7,7 @@ class Approve extends CI_Controller {
 	public function __construct(){
 		parent::__construct();
 		$this->load->model('approve_model');
+		
 	}
 	
 	// Index
@@ -135,17 +136,29 @@ class Approve extends CI_Controller {
 
 	//Kirim Surat Penolak Via EMAIL
 	public function kirim_srt_penolakan($id_pemohon) {
+
+    $this->load->library('pdf');
+    $customPaper = array(0,0,381.89,595.28);
+    $this->pdf->setPaper($customPaper, 'landscape');
+    $this->pdf->load_view('admin/approve/laporan_pdf');
+
 		$i = $this->input;
 		$data = array(
-							'id_pemohon'				=> $id_pemohon,
-							'id_pengolah_data'				=> $this->session->userdata('id'),
+							'id_pemohon'					=> $id_pemohon,
+							'id_pengolah_data'		=> $this->session->userdata('id'),
 							'tanggal_proses'			=> date('Y-m-d H:i:s'),
-							'status_permohonan'				=> 'SELESAI'
+							'status_permohonan'		=> 'SELESAI',
+							'pasal_1_tolak'				=> $i->post('pasal_1_tolak'),
+							'pasal_2_tolak'				=> $i->post('pasal_2_tolak'),
+							'konsekuensi_tolak'		=> $i->post('konsekuensi_tolak'),
+							'atasan_PPID_tolak'		=> $i->post('atasan_PPID_tolak')
 						);
+		// var_dump($data);
+		// die();
 
-		$this->approve_model->edit($data);
-		$this->session->set_flashdata('sukses','Kirim Surat Penolakan Berhasil!');
-		redirect(base_url('admin/approve'));
+		// // $this->approve_model->edit($data);
+		// $this->session->set_flashdata('sukses','Kirim Surat Penolakan Berhasil!');
+		// redirect(base_url('admin/approve'));
 	}
 	
 }

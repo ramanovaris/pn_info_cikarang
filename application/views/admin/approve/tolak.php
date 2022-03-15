@@ -38,7 +38,8 @@ tinymce.init({
             </div>
             <div class="modal-body">
                 <p class="alert alert-danger">Yakin ingin Tolak Pengajuan <b><?php echo $approve->kode_pemohon ?></b>?</p>
-                <!-- <?php
+                
+                <?php
                     // Error
                     if(isset($error)) {
                         echo '<div class="alert alert-warning">';
@@ -50,70 +51,36 @@ tinymce.init({
                     echo validation_errors('<div class="alert alert-success">','</div>');
 
                     // Form
-                    echo form_open_multipart('admin/verifikasi/tolak');
-                ?> -->
+                    echo form_open_multipart('admin/approve/kirim_srt_penolakan/'.$approve->id_pemohon);
+                ?>
             
-                
-                <!-- <div class="form-group form-group-sm">
-                    <p><label>Pengecualaian Informasi berdasarakan pada alasan : </label></p>
-                    <input type="text" name="nama_berita" placeholder="Nama berita" value="<?php echo set_value('nama_berita') ?>" required class="form-control">
-                    <input type="text" name="nama_berita" placeholder="Nama berita" value="<?php echo set_value('nama_berita') ?>" required class="form-control">
-                </div> -->
-
-                <!-- <div class="col-md-4">
-                    <div class="form-group form-group-lg">
-                    <label>Status Berita</label>
-                    <select name="status_berita" class="form-control">
-                        <option value="Publish">Publikasikan</option>
-                        <option value="Draft">Simpan sebagai Draft</option>
-                    </select>
-                    </div>
+                <div class="form-group">
+                    <p><label style="font-size: 12px;">Pengecualian Informasi berdasarakan pada alasan : </label></p>
+                    <input type="text" name="pasal_1_tolak" placeholder="Pasal" value="<?php echo set_value('pasal_1') ?>" required class="form-control">
+                    <input type="text" name="pasal_2_tolak" placeholder="Pasal" value="<?php echo set_value('pasal_2') ?>" required class="form-control">
                 </div>
 
-                <div class="col-md-6">
-                    <div class="form-group">
-                        <label>Kategori Berita</label>
-                        <select name="id_kategori_berita" class="form-control">
-                            <?php foreach($kategori as $kategori) { ?>
-                                <option value="<?php echo $kategori->id_kategori_berita ?>">
-                                <?php echo $kategori->nama_kategori_berita ?></option>
-                            <?php } ?>
-                        </select>
-                    </div>
+                <div class="form-group">
+                    <p><label style="font-size: 12px;">Konsekuensi : </label></p>
+                    <textarea id="konsekuensi_tolak" name="konsekuensi_tolak" placeholder="Konsekuensi" value="<?php echo set_value('konsekuensi_tolak') ?>" rows="4" cols="85"></textarea>
                 </div>
 
-                <div class="col-md-6">
-                    <div class="form-group">
-                    <label>Jenis Berita</label>
-                    <select name="jenis_berita" class="form-control">
-                        <option value="Berita">Berita</option>
-                        <option value="Profil">Profil perusahaan</option>
-                    </select>
-                    </div>
+                <div class="form-group">
+                    <p><label style="font-size: 12px;">Pemohon informasi dapat mengajukan keberatan kepada atasan PPID yaitu : </label></p>
+                    <input type="text" name="atasan_PPID_tolak" placeholder="Nama Atasan PPID" value="<?php echo set_value('atasan_PPID_tolak') ?>" required class="form-control">
                 </div>
-
-                <div class="col-md-12">
-                    <div class="form-group">
-                        <label>Upload gambar</label>
-                        <input type="file" name="gambar" class="form-control">
-                    </div>
-
-                    <div class="form-group">
-                        <label>Keterangan</label>
-                        <textarea name="keterangan" class="form-control" placeholder="Keterangan" id="keterangan"><?php echo set_value('keterangan') ?></textarea>
-                    </div>
-
-                    <div class="form-group">
-                        <input type="submit" name="submit" value="Simpan Data" class="btn btn-primary btn-lg">
-                        <input type="reset" name="reset" value="Reset" class="btn btn-default btn-lg">
-                    </div>
-                </div> -->
-                <!-- <?php echo form_close() ?> -->
             </div>
             <div class="modal-footer">
-                <button type="button" onclick="location.href='<?php echo base_url('admin/approve/kirim_srt_penolakan/'.$approve->id_pemohon) ?>'" class="myButton-red" data-dismiss="modal"><span class="glyphicon glyphicon-remove"></span> Ya, Tolak</button>
+                <!-- <button type="button" onclick="location.href='<?php echo base_url('admin/approve/kirim_srt_penolakan/'.$approve->id_pemohon) ?>'" class="myButton-red" data-dismiss="modal">
+                    <span class="glyphicon glyphicon-remove"></span> Ya, Tolak
+                </button> -->
+                <!-- <input type="submit" name="submit" value="Simpan Data" class="btn btn-primary btn-lg"> -->
+                <button type="submit" class="myButton-red">
+                    <span class="glyphicon glyphicon-remove"></span> Ya, Tolak
+                </button>
                 <button type="button" class="myButton-blue" data-dismiss="modal">Close</button>
             </div>
+            <?php echo form_close() ?>
         </div>
     </div>
 </div>
