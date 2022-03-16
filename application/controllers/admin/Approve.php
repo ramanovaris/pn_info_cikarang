@@ -142,7 +142,7 @@ class Approve extends CI_Controller {
 							'id_pemohon'					=> $id_pemohon,
 							'id_pengolah_data'		=> $this->session->userdata('id'),
 							'tanggal_proses'			=> date('Y-m-d H:i:s'),
-							// 'status_permohonan'		=> 'SELESAI',
+							'status_permohonan'		=> 'SELESAI',
 							'pasal_1_tolak'				=> $i->post('pasal_1_tolak'),
 							'pasal_2_tolak'				=> $i->post('pasal_2_tolak'),
 							'konsekuensi_tolak'		=> $i->post('konsekuensi_tolak'),
@@ -172,10 +172,10 @@ class Approve extends CI_Controller {
 			$filename = 'SURAT KEPUTUSAN PPID TENTANG PENOLAKAN PERMOHONAN INFORMASI '.$kode_permohonan.'.pdf';
 			
 			// Save PDF to server
-			// $createPDF = $this->pdf->createPDF($html, $filename, 'A4', 'potrait');
+			$createPDF = $this->pdf->createPDF($html, $filename, 'A4', 'potrait');
 
 			// Preview PDF
-			$PreviePDF = $this->pdf->PreviePDF($html, $filename, 'A4', 'potrait');
+			// $PreviePDF = $this->pdf->PreviePDF($html, $filename, 'A4', 'portrait');
 			
 
 			// ///////////////////// kirim email///////////////////////////////////////////////////////////////

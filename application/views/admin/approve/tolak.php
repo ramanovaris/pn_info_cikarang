@@ -57,7 +57,7 @@ tinymce.init({
                 <div class="form-group">
                     <p><label style="font-size: 12px;">Pengecualian Informasi berdasarakan pada alasan : </label></p>
                     <input type="text" name="pasal_1_tolak" placeholder="Pasal" value="<?php echo set_value('pasal_1') ?>" required class="form-control">
-                    <input type="text" name="pasal_2_tolak" placeholder="Pasal" value="<?php echo set_value('pasal_2') ?>" required class="form-control">
+                    <input type="text" name="pasal_2_tolak" placeholder="Pasal" value="<?php echo set_value('pasal_2') ?>" class="form-control">
                 </div>
 
                 <div class="form-group">
