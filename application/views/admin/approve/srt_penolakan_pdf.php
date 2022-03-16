@@ -1,3 +1,7 @@
+<?php
+$site = $this->konfigurasi_model->listing();
+?>
+
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -30,10 +34,11 @@
         </style>
     </head>
     <body>
+        <img src="<?php echo base_url('assets/upload/image/'.$site['icon']) ?>">
         <div style="text-align:center">
             <h4> SURAT KEPUTUSAN PPID TENTANG PENOLAKAN PERMOHONAN INFORMASI </h4>
             <?php foreach($approve as $data) { ?>
-                <h6><?php echo $data->konsekuensi_tolak ?></h6>
+                <h5><?php echo 'No. Pendaftaran: '.$data->kode_pemohon ?></h5>
             <?php } ?>
         </div>
         <table id="table">

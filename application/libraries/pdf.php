@@ -8,6 +8,7 @@
  * @link        https://github.com/ardianta/codeigniter-dompdf
  */
 use Dompdf\Dompdf;
+use Dompdf\Options;
 use Dompdf\Exception;
 class Pdf extends Dompdf{
     /**
@@ -31,22 +32,35 @@ class Pdf extends Dompdf{
      * @param    
      * @return   
      */
-    public function load_view($view, $data = array()){
-        $html = $this->ci()->load->view($view, $data, TRUE);
-        $this->load_html($html);
-        // Render the PDF
-        $this->render();
-        // Output the generated PDF to Browser
-        $this->stream($this->filename, array("Attachment" => false));
-    }
-
     public function createPDF($html, $filename='', $paper = '', $orientation = ''){
         define('DOMPDF_ENABLE_AUTOLOAD', false);
-        $dompdf = new DOMPDF();
+        $options = new Options();
+        $options->set('isRemoteEnabled', TRUE);
+        // $options->set('chroot', 'C:\xampp\htdocs\pn_info_cikarang');
+        $dompdf = new DOMPDF($options);
+        // $dompdf = new DOMPDF();
         $dompdf->load_html($html);
-        $dompdf->setPaper($paper, $orientation);
+        // $dompdf->loadHtmlFile($html);
+        $dompdf->setPaper($paper, $orientation);// <-- object ini yang perlu kita tambahkan
         $dompdf->render();
         $output = $dompdf->output();
         file_put_contents('assets/generate_pdf/'.$filename, $output);
+    }
+
+    public function PreviePDF($html, $filename='', $paper = '', $orientation = ''){
+        define('DOMPDF_ENABLE_AUTOLOAD', false);
+        $options = new Options();
+        $options->set('isRemoteEnabled', TRUE);
+        // $options->set('chroot', 'C:\xampp\htdocs\pn_info_cikarang');
+        $dompdf = new DOMPDF($options);
+        // $dompdf = new DOMPDF();
+        $dompdf->load_html($html);
+        // $dompdf->loadHtmlFile($html);
+        $dompdf->setPaper($paper, $orientation);// <-- object ini yang perlu kita tambahkan
+        $dompdf->render();
+        $output = $dompdf->output();
+        // $this->stream($this->filename, array("Attachment" => false));
+        $dompdf->stream("dompdf_out.pdf", array("Attachment" => false));
+
     }
 }

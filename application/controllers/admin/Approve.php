@@ -168,62 +168,64 @@ class Approve extends CI_Controller {
 								'isi'		=> 'admin/approve/list'
 							);
 			$html = $this->load->view('admin/approve/srt_penolakan_pdf', $data, true);
-
 			//Nama File Generate
 			$filename = 'SURAT KEPUTUSAN PPID TENTANG PENOLAKAN PERMOHONAN INFORMASI '.$kode_permohonan.'.pdf';
-			$createPDF = $this->pdf->createPDF($html, $filename, 'A4', 'potrait');
+			
+			// Save PDF to server
+			// $createPDF = $this->pdf->createPDF($html, $filename, 'A4', 'potrait');
 
-			///////////////////// kirim email///////////////////////////////////////////////////////////////
-			// Konfigurasi email
-			$config = [
-					'mailtype'  => 'html',
-					'charset'   => 'utf-8',
-					'protocol'  => 'smtp',
-					'smtp_host' => 'smtp.gmail.com',
-					'smtp_user' => 'hantuwifi7@gmail.com',  // Email gmail
-					'smtp_pass'   => 'sulitditebak',  // Password gmail
-					'smtp_crypto' => 'ssl',
-					'smtp_port'   => 465,
-					'crlf'    => "\r\n",
-					'newline' => "\r\n"
-			];
+			// Preview PDF
+			$PreviePDF = $this->pdf->PreviePDF($html, $filename, 'A4', 'potrait');
+			
 
-			// Load library email dan konfigurasinya
-			$this->load->library('email', $config);
+			// ///////////////////// kirim email///////////////////////////////////////////////////////////////
+			// // Konfigurasi email
+			// $config = [
+			// 		'mailtype'  => 'html',
+			// 		'charset'   => 'utf-8',
+			// 		'protocol'  => 'smtp',
+			// 		'smtp_host' => 'smtp.gmail.com',
+			// 		'smtp_user' => 'hantuwifi7@gmail.com',  // Email gmail
+			// 		'smtp_pass'   => 'sulitditebak',  // Password gmail
+			// 		'smtp_crypto' => 'ssl',
+			// 		'smtp_port'   => 465,
+			// 		'crlf'    => "\r\n",
+			// 		'newline' => "\r\n"
+			// ];
 
-			// Email dan nama pengirim
-			$this->email->from('hantuwifi7@gmail.com', 'hantu');
-			// Email penerima
-			$this->email->bcc('ramaanovariss@gmail.com, theboy141198@gmail.com'); // Ganti dengan email tujuan
-			// Lampiran email, isi dengan url/path file
-			$this->email->attach('assets/generate_pdf/'.$filename);
-			// Subject email
-			$this->email->subject('Tes lagi');
-			// Isi email
-			$this->email->message("coba bcc ke 2 penerima");
-			// Kirim email
-			$this->email->send();
+			// // Load library email dan konfigurasinya
+			// $this->load->library('email', $config);
 
-			// // Tampilkan pesan sukses atau error
-			// if ($this->email->send()) {
-			// 		echo 'Sukses! email berhasil dikirim.';
-			// } else {
-			// 		echo 'Error! email tidak dapat dikirim.';
-			// 		echo '<br />';
-			// 		echo $this->email->print_debugger();
-			// }
-			////////////////////////////////////////// end kirim email/////////////////////////
+			// // Email dan nama pengirim
+			// $this->email->from('hantuwifi7@gmail.com', 'hantu');
+			// // Email penerima
+			// $this->email->bcc('ramaanovariss@gmail.com, theboy141198@gmail.com'); // Ganti dengan email tujuan
+			// // Lampiran email, isi dengan url/path file
+			// $this->email->attach('assets/generate_pdf/'.$filename);
+			// // Subject email
+			// $this->email->subject('Tes lagi');
+			// // Isi email
+			// $this->email->message("coba bcc ke 2 penerima");
+			// // Kirim email
+			// $this->email->send();
 
-			$this->session->set_flashdata('sukses','Kirim Surat Penolakan Berhasil!');
-			redirect(base_url('admin/approve'));
+			// // // Tampilkan pesan sukses atau error
+			// // if ($this->email->send()) {
+			// // 		echo 'Sukses! email berhasil dikirim.';
+			// // } else {
+			// // 		echo 'Error! email tidak dapat dikirim.';
+			// // 		echo '<br />';
+			// // 		echo $this->email->print_debugger();
+			// // }
+			// ////////////////////////////////////////// end kirim email/////////////////////////
+
+			// $this->session->set_flashdata('sukses','Kirim Surat Penolakan Berhasil!');
+			// redirect(base_url('admin/approve'));
 		} 
 		else {
 			$this->session->set_flashdata('error', 'Error');
 			redirect(base_url('admin/approve'));
 		}
-
-		// Preview PDF
-    // $html = $this->load->view('admin/layout/wrapper', $data);
 	}
 	
 }
