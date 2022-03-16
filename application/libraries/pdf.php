@@ -48,7 +48,7 @@ class Pdf extends Dompdf{
     }
 
     public function PreviePDF($html, $filename='', $paper = '', $orientation = ''){
-        define('DOMPDF_ENABLE_AUTOLOAD', false);
+        // define('DOMPDF_ENABLE_AUTOLOAD', false);
         $options = new Options();
         $options->set('isRemoteEnabled', TRUE);
         // $options->set('chroot', 'C:\xampp\htdocs\pn_info_cikarang');

@@ -172,55 +172,68 @@ class Approve extends CI_Controller {
 			$filename = 'SURAT KEPUTUSAN PPID TENTANG PENOLAKAN PERMOHONAN INFORMASI '.$kode_permohonan.'.pdf';
 			
 			// Save PDF to server
-			// $createPDF = $this->pdf->createPDF($html, $filename, 'A4', 'potrait');
+			$createPDF = $this->pdf->createPDF($html, $filename, 'A4', 'potrait');
 
 			// Preview PDF
-			$PreviePDF = $this->pdf->PreviePDF($html, $filename, 'A4', 'portrait');
+			// $PreviePDF = $this->pdf->PreviePDF($html, $filename, 'A4', 'portrait');
 			
 
 			// ///////////////////// kirim email///////////////////////////////////////////////////////////////
-			// // Konfigurasi email
-			// $config = [
-			// 		'mailtype'  => 'html',
-			// 		'charset'   => 'utf-8',
-			// 		'protocol'  => 'smtp',
-			// 		'smtp_host' => 'smtp.gmail.com',
-			// 		'smtp_user' => 'hantuwifi7@gmail.com',  // Email gmail
-			// 		'smtp_pass'   => 'sulitditebak',  // Password gmail
-			// 		'smtp_crypto' => 'ssl',
-			// 		'smtp_port'   => 465,
-			// 		'crlf'    => "\r\n",
-			// 		'newline' => "\r\n"
-			// ];
+			// Konfigurasi email
+			$config = [
+					'mailtype'  => 'html',
+					'charset'   => 'utf-8',
+					'protocol'  => 'smtp',
+					'smtp_host' => 'smtp.gmail.com',
+					'smtp_user' => 'hantuwifi7@gmail.com',  // Email gmail
+					'smtp_pass'   => 'sulitditebak',  // Password gmail
+					'smtp_crypto' => 'ssl',
+					'smtp_port'   => 465,
+					'crlf'    => "\r\n",
+					'newline' => "\r\n"
+			];
 
-			// // Load library email dan konfigurasinya
-			// $this->load->library('email', $config);
+			// Load library email dan konfigurasinya
+			$this->load->library('email', $config);
 
-			// // Email dan nama pengirim
-			// $this->email->from('hantuwifi7@gmail.com', 'hantu');
-			// // Email penerima
-			// $this->email->bcc('ramaanovariss@gmail.com, theboy141198@gmail.com'); // Ganti dengan email tujuan
-			// // Lampiran email, isi dengan url/path file
-			// $this->email->attach('assets/generate_pdf/'.$filename);
-			// // Subject email
-			// $this->email->subject('Tes lagi');
-			// // Isi email
-			// $this->email->message("coba bcc ke 2 penerima");
-			// // Kirim email
-			// $this->email->send();
+			// Email dan nama pengirim
+			$this->email->from('hantuwifi7@gmail.com', 'hantu');
+			// Email penerima
+			$this->email->bcc('ramaanovariss@gmail.com, theboy141198@gmail.com'); // Ganti dengan email tujuan
+			// Lampiran email, isi dengan url/path file
+			$this->email->attach('assets/generate_pdf/'.$filename);
+			// Subject email
+			$this->email->subject('Tes lagi');
+			// Isi email
+			$this->email->message("coba bcc ke 2 penerima");
+			// Kirim email
+			$this->email->send();
 
-			// // // Tampilkan pesan sukses atau error
-			// // if ($this->email->send()) {
-			// // 		echo 'Sukses! email berhasil dikirim.';
-			// // } else {
-			// // 		echo 'Error! email tidak dapat dikirim.';
-			// // 		echo '<br />';
-			// // 		echo $this->email->print_debugger();
-			// // }
-			// ////////////////////////////////////////// end kirim email/////////////////////////
+			// // Tampilkan pesan sukses atau error
+			// if ($this->email->send()) {
+			// 		echo 'Sukses! email berhasil dikirim.';
+			// } else {
+			// 		echo 'Error! email tidak dapat dikirim.';
+			// 		echo '<br />';
+			// 		echo $this->email->print_debugger();
+			// }
+			////////////////////////////////////////// end kirim email/////////////////////////
+			
+			//Update Sts Permohonan
+			$data2 = array(
+				'id_pemohon'					=> $id_pemohon,
+				'status_permohonan'		=> 'SELESAI'
+			);
 
-			// $this->session->set_flashdata('sukses','Kirim Surat Penolakan Berhasil!');
-			// redirect(base_url('admin/approve'));
+			$update_sts_penolakan = $this->approve_model->edit($data2);
+			#Jika Update Sts Penolakan Berhasil
+			if ($update_sts_penolakan > 0) {
+				$this->session->set_flashdata('sukses','Kirim Surat Penolakan Berhasil!');
+				redirect(base_url('admin/approve'));
+			}else{
+				$this->session->set_flashdata('error', 'Error');
+				redirect(base_url('admin/approve'));
+			}
 		} 
 		else {
 			$this->session->set_flashdata('error', 'Error');
