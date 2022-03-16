@@ -40,7 +40,7 @@ class Pdf extends Dompdf{
         $this->stream($this->filename, array("Attachment" => false));
     }
 
-    public function createPDF($html, $filename='', $paper = 'A4', $orientation = 'portrait'){
+    public function createPDF($html, $filename='', $paper = '', $orientation = ''){
         define('DOMPDF_ENABLE_AUTOLOAD', false);
         $dompdf = new DOMPDF();
         $dompdf->load_html($html);

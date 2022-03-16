@@ -66,6 +66,8 @@ class Approve_model extends CI_Model {
 	public function edit ($data) {
 		$this->db->where('id_pemohon',$data['id_pemohon']);
 		$this->db->update('permohonan_informasi',$data);
+
+		return $this->db->affected_rows();
 	}
 
 	//Listing BY status
@@ -219,7 +221,11 @@ class Approve_model extends CI_Model {
 			DATE_FORMAT(a.`tgl_ajukan`, '%d %M %Y') AS tgl_ajukan,
 			a.`id_ajukan`,
 			DATE_FORMAT(a.`tgl_persetujuan_ppid`, '%d %M %Y') AS tgl_persetujuan_ppid,
-			a.`id_setujui_ppid`
+			a.`id_setujui_ppid`,
+			a.pasal_1_tolak,
+			a.pasal_2_tolak,
+			a.konsekuensi_tolak,
+			a.atasan_PPID_tolak
 		FROM `permohonan_informasi` a
 		LEFT JOIN users b ON a.`id_setujui_ppid` = b.`id_user`
 		WHERE
