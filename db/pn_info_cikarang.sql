@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 12 Mar 2022 pada 03.14
+-- Waktu pembuatan: 16 Mar 2022 pada 17.43
 -- Versi server: 10.1.37-MariaDB
 -- Versi PHP: 7.0.33
 
@@ -182,7 +182,6 @@ INSERT INTO `konfigurasi` (`id_konfigurasi`, `home_setting`, `namaweb`, `tagline
 CREATE TABLE `permohonan_informasi` (
   `id_pemohon` int(11) NOT NULL,
   `kode_pemohon` varchar(100) NOT NULL,
-  `tgl_pemberitahuan` date DEFAULT NULL,
   `nama_pemohon` varchar(255) NOT NULL,
   `alamat` text,
   `pekerjaan` varchar(255) NOT NULL,
@@ -194,25 +193,31 @@ CREATE TABLE `permohonan_informasi` (
   `salinan` varchar(50) DEFAULT NULL,
   `via` varchar(50) DEFAULT NULL,
   `tanggal_permohonan` date DEFAULT NULL,
-  `nama_verifikator` varchar(255) DEFAULT NULL,
   `update_time` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
-  `tanggal_verifikasi` date DEFAULT NULL,
-  `nama_pengolah_data` varchar(255) DEFAULT NULL,
+  `id_pengolah_data` varchar(50) DEFAULT NULL,
   `tanggal_proses` date DEFAULT NULL,
-  `status_permohonan` varchar(100) DEFAULT NULL
+  `status_permohonan` varchar(100) DEFAULT NULL,
+  `lampiran` varchar(255) DEFAULT NULL,
+  `tgl_ajukan` date DEFAULT NULL,
+  `id_ajukan` varchar(50) DEFAULT NULL,
+  `tgl_persetujuan_ppid` date DEFAULT NULL,
+  `id_setujui_ppid` varchar(50) DEFAULT NULL,
+  `pasal_1_tolak` varchar(200) DEFAULT NULL,
+  `pasal_2_tolak` varchar(200) DEFAULT NULL,
+  `konsekuensi_tolak` text,
+  `atasan_PPID_tolak` varchar(100) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data untuk tabel `permohonan_informasi`
 --
 
-INSERT INTO `permohonan_informasi` (`id_pemohon`, `kode_pemohon`, `tgl_pemberitahuan`, `nama_pemohon`, `alamat`, `pekerjaan`, `email`, `no_telpon`, `rincian_informasi`, `tujuan`, `cara_peroleh_info`, `salinan`, `via`, `tanggal_permohonan`, `nama_verifikator`, `update_time`, `tanggal_verifikasi`, `nama_pengolah_data`, `tanggal_proses`, `status_permohonan`) VALUES
-(15, '110322-00001', '2022-03-13', 'Rama novaris', 'pgg', 'Programmer', 'ramaanovariss@gmail.com', '5555555555', 'ssssssssssdddd', 'Untuk mengurus kredit rumah', 'Membaca', 'Softcopy', 'Email', '2022-03-11', 'Rama', '2022-03-11 17:08:59', '2022-03-12', NULL, NULL, 'TOLAK'),
-(16, '110322-00001', '2022-03-14', 'aaaaaaaa', 'bbbbbbbbbbbbbbb', 'cccccccccccccccc', 'ddddddd@ddd', '09987', 'eeeeeeeeeee', 'fffffffffffffff', 'Melihat', 'Softcopy', 'Langsung', '2022-03-11', NULL, '2022-03-11 16:32:17', NULL, NULL, NULL, 'BELUM DIVERIFIKASI'),
-(17, '120322-00001', '2022-03-03', 'fds', 'fdsfdsf', 'sdfds', 'dsfs@fdsf', '322', 'fdsfds', 'sf', 'Melihat', 'Softcopy', 'Langsung', '2022-03-12', 'Rama', '2022-03-11 17:07:18', '2022-03-12', NULL, NULL, 'TOLAK'),
-(18, '120322-00001', '2022-03-30', 'sfsdf', 'sfds', '3434', 'dfd@fdf', '2323', 'sfsd', 'sdfd', 'Melihat', 'Softcopy', 'Langsung', '2022-03-12', 'Rama', '2022-03-11 17:09:16', '2022-03-12', NULL, NULL, 'TOLAK'),
-(19, '120322-00002', '2022-03-22', 'sfds', 'sfds', 'sdfds', 'sdfs@fdsf', '434', 'sdfds', 'sf', 'Melihat', 'Softcopy', 'Langsung', '2022-03-12', 'Rama', '2022-03-11 17:06:52', '2022-03-12', NULL, NULL, 'TOLAK'),
-(20, '120322-00003', '2022-03-15', 'tess tgl', 'asda', 'sdfsd', 'dfd@fdf', '2323', 'sdfds', 'sdfs', 'Melihat', 'Softcopy', 'Langsung', '2022-03-12', 'Rama', '2022-03-11 17:07:09', '2022-03-12', NULL, NULL, 'TERIMA');
+INSERT INTO `permohonan_informasi` (`id_pemohon`, `kode_pemohon`, `nama_pemohon`, `alamat`, `pekerjaan`, `email`, `no_telpon`, `rincian_informasi`, `tujuan`, `cara_peroleh_info`, `salinan`, `via`, `tanggal_permohonan`, `update_time`, `id_pengolah_data`, `tanggal_proses`, `status_permohonan`, `lampiran`, `tgl_ajukan`, `id_ajukan`, `tgl_persetujuan_ppid`, `id_setujui_ppid`, `pasal_1_tolak`, `pasal_2_tolak`, `konsekuensi_tolak`, `atasan_PPID_tolak`) VALUES
+(25, '140322-00003', 'jumai', 'catur', 'karyawan', 'jumainah@gmail.com', '082332323', 'Minta Surat Putusan Hakim', 'kredit rumah', 'Melihat', 'Softcopy', 'Langsung', '2022-03-14', '2022-03-14 18:20:22', '4', '2022-03-15', 'SELESAI', '15032022_012022_Trigger_Pembelian_Solar.txt', '2022-03-14', '4', '2022-03-15', '4', NULL, NULL, NULL, NULL),
+(26, '150322-00001', 'Faiz', 'Batang', 'Programmer', 'faiz@gmail.com', '082323222', 'Surat Tanah', 'Beli Tanah', 'Melihat', 'Softcopy', 'Langsung', '2022-03-15', '2022-03-14 18:56:12', '4', '2022-03-15', 'SELESAI', '15032022_015611_kop_surat.docx', '2022-03-15', '4', '2022-03-15', '4', NULL, NULL, NULL, NULL),
+(27, '150322-00002', 'Nazwa', 'panggung', 'siswa', 'naz@gmail.com', '0822232', 'data hakim', 'pr', 'Melihat', 'Softcopy', 'Email', '2022-03-15', '2022-03-14 18:45:43', '4', '2022-03-15', 'SELESAI', NULL, '2022-03-15', '4', NULL, NULL, NULL, NULL, NULL, NULL),
+(28, '150322-00003', 'rio', 'sdfsd', 'sfsd', 'fdf@dgfdgd', '4343', 'dsfs', 'dsf', 'Melihat', 'Softcopy', 'Langsung', '2022-03-15', '2022-03-14 18:55:14', '4', '2022-03-15', 'SELESAI', '15032022_015514_Trigger_Pembelian_Solar.txt', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+(29, '150322-00004', 'dicky', 'jktdddddddddddd ggggggggg ddddddddddddd ttttttttt aaaaaa xxxxxxxx', 'podcaster', 'gdic@fmdfs', '23232', 'koooo sdfsd', 'tessss', 'Melihat', 'Softcopy', 'Langsung', '2022-03-15', '2022-03-16 16:42:47', '4', '2022-03-16', 'TOLAK', NULL, '2022-03-15', '4', NULL, NULL, 'df', 'dfd', 'dfd', 'fdf');
 
 -- --------------------------------------------------------
 
@@ -265,10 +270,9 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id_user`, `nama`, `email`, `username`, `password`, `akses_level`) VALUES
-(1, 'robert', 'rs8088y@gmail.com', 'andoyo', 'andoyo', 'Admin'),
-(2, 'Hanif', 'tirtahijaufarm@gmail.com', 'Hanif', '12345', 'Admin'),
-(4, 'Rama', 'ramaanovariss@gmail.com', 'rama', 'rama', 'Admin'),
-(5, 'rizal', 'rizal@gmail.com', 'rizal', 'rizal', 'User');
+(4, 'Rama', 'ramaanovariss@gmail.com', 'rama', 'rama', 'Super Admin'),
+(5, 'rizal', 'rizal@gmail.com', 'rizal', 'rizal', 'PPID'),
+(6, 'Rasid', 'rasid@gmail.com', 'rasid', 'rasid', 'Pengolah Informasi');
 
 -- --------------------------------------------------------
 
@@ -333,7 +337,8 @@ ALTER TABLE `konfigurasi`
 -- Indeks untuk tabel `permohonan_informasi`
 --
 ALTER TABLE `permohonan_informasi`
-  ADD PRIMARY KEY (`id_pemohon`);
+  ADD PRIMARY KEY (`id_pemohon`),
+  ADD UNIQUE KEY `kode_pemohon` (`kode_pemohon`);
 
 --
 -- Indeks untuk tabel `produk`
@@ -392,7 +397,7 @@ ALTER TABLE `konfigurasi`
 -- AUTO_INCREMENT untuk tabel `permohonan_informasi`
 --
 ALTER TABLE `permohonan_informasi`
-  MODIFY `id_pemohon` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
+  MODIFY `id_pemohon` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=30;
 
 --
 -- AUTO_INCREMENT untuk tabel `produk`
@@ -404,7 +409,7 @@ ALTER TABLE `produk`
 -- AUTO_INCREMENT untuk tabel `users`
 --
 ALTER TABLE `users`
-  MODIFY `id_user` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id_user` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT untuk tabel `video`
